@@ -1,0 +1,204 @@
+.modal {
+  width: 42vw;
+  min-width: 320px;
+  max-width: 520px;
+}
+
+.modal :global(.sc-modal-title) {
+  color: var(--brand-primary);
+  font-weight: 500;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0 !important;
+}
+
+.parentHint {
+  margin: 0;
+  padding: 1.2vh 1.8vw 0;
+  font-size: 0.78vw;
+  color: #64748b;
+}
+
+.parentHint strong {
+  color: var(--brand-primary);
+}
+
+.section {
+  padding: 1.6vh 1.8vw 1.4vh;
+  border-bottom: 0.08vw solid var(--brand-primary);
+}
+
+.sectionLabel {
+  margin: 0 0 1.2vh;
+  font-size: 0.92vw;
+  font-weight: 600;
+  color: var(--brand-primary);
+}
+
+.addRow {
+  display: flex;
+  align-items: center;
+  gap: 0.6vw;
+}
+
+.addInput {
+  flex: 1;
+  min-width: 0;
+  height: 4.3vh;
+  min-height: 38px;
+  padding: 0 0.8vw;
+  border: 0.08vw solid #b8bcc8;
+  border-radius: 0.2vw;
+  font-size: 0.95vw;
+  font-family: inherit;
+  color: #46505a;
+  background: #fff;
+}
+
+.addInput:focus {
+  outline: none;
+  border-color: var(--brand-primary);
+}
+
+.addInput::placeholder {
+  color: #94a3b8;
+}
+
+.addBtn {
+  flex-shrink: 0;
+  width: 2.2vw;
+  height: 2.2vw;
+  min-width: 38px;
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.1vw solid var(--brand-accent);
+  border-radius: 0.2vw;
+  background: #fff;
+  color: var(--brand-accent);
+  font-size: 1.35vw;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.addBtn:hover:not(:disabled) {
+  background: #fff0f8;
+}
+
+.addBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.listArea {
+  flex: 1;
+  min-height: 28vh;
+  max-height: 42vh;
+  overflow-y: auto;
+  padding: 1.2vh 1.8vw;
+  border-bottom: 0.08vw solid var(--brand-primary);
+}
+
+.listEmpty {
+  margin: 0;
+  padding: 4vh 0;
+  text-align: center;
+  font-size: 0.85vw;
+  color: #94a3b8;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8vw;
+  padding: 0.9vh 0.6vw;
+  border-bottom: 0.05vw solid #e8ecf1;
+  font-size: 0.92vw;
+  color: #46505a;
+}
+
+.listItem:last-child {
+  border-bottom: none;
+}
+
+.listItemName {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.listItemRemove {
+  flex-shrink: 0;
+  border: none;
+  background: transparent;
+  color: #94a3b8;
+  font-size: 1.1vw;
+  cursor: pointer;
+  padding: 0.2vh 0.4vw;
+  line-height: 1;
+}
+
+.listItemRemove:hover {
+  color: var(--brand-accent);
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.8vh 1.8vw 2.2vh;
+  flex-shrink: 0;
+}
+
+.btnSave {
+  min-width: 6.5vw;
+  height: 2.2vw;
+  min-height: 36px;
+  padding: 0 1.6vw;
+  border: none;
+  border-radius: 0.25vw;
+  background: var(--brand-primary);
+  color: #fff;
+  font-size: 0.9vw;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+.btnSave:hover:not(:disabled) {
+  background: var(--brand-primary-dark);
+}
+
+.btnSave:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.parentSelectWrap {
+  padding: 1.2vh 1.8vw 0;
+}
+
+@media (max-width: 768px) {
+  .modal {
+    width: 94vw;
+  }
+  .sectionLabel,
+  .addInput,
+  .listItem {
+    font-size: 0.9rem;
+  }
+  .addBtn {
+    font-size: 1.25rem;
+  }
+}

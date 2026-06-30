@@ -1,0 +1,217 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1vw;
+  padding: 1.8vh 1.8vw 2.2vh;
+  border-top: 0.05vw solid #b8bcc8;
+  flex-shrink: 0;
+}
+
+.footerLeft,
+.footerRight {
+  display: flex;
+  align-items: center;
+  gap: 0.8vw;
+}
+
+.btnContact {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35vw;
+  min-height: 2.2vw;
+  min-height: 36px;
+  padding: 0 1vw;
+  border: 0.08vw solid var(--brand-primary);
+  border-radius: 0.25vw;
+  background: #fff;
+  color: var(--brand-primary);
+  font-size: 0.88vw;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btnContact:hover:not(:disabled) {
+  background: #fff0f8;
+}
+
+.btnReset,
+.btnSave {
+  min-width: 6.5vw;
+  height: 2.2vw;
+  min-height: 36px;
+  padding: 0 1.4vw;
+  border: none;
+  border-radius: 0.25vw;
+  font-size: 0.9vw;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.btnReset {
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  color: #334155;
+  opacity: 1;
+}
+
+.btnReset:hover:not(:disabled) {
+  background: #f8fafc;
+}
+
+.btnSave {
+  background: var(--brand-primary);
+  color: #fff;
+}
+
+.btnSave:hover:not(:disabled) {
+  background: var(--brand-primary-dark);
+}
+
+.btnReset:disabled,
+.btnSave:disabled,
+.btnContact:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.geoWrap {
+  position: relative;
+  width: 100%;
+}
+
+.geoWrap :global(.sc-input) {
+  padding-right: 2.2vw;
+}
+
+.geoPin {
+  position: absolute;
+  right: 0.65vw;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1vw;
+  min-width: 14px;
+  height: auto;
+  color: var(--brand-accent);
+  pointer-events: none;
+  font-size: 0.95vw;
+  line-height: 1;
+}
+
+.section {
+  margin-top: 1.5vh;
+  padding-top: 1.5vh;
+  border-top: 0.05vw solid #e8ecf1;
+}
+
+.sectionTitle {
+  margin: 0 0 1.2vh;
+  font-size: 0.95vw;
+  font-weight: 600;
+  color: var(--brand-primary);
+}
+
+.flagsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1vh 1.5vw;
+}
+
+.checkboxRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4vh;
+  min-width: 0;
+}
+
+.checkboxLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5vw;
+  font-size: 0.88vw;
+  color: var(--brand-primary);
+  cursor: pointer;
+}
+
+.checkboxLabel input {
+  width: 1vw;
+  min-width: 16px;
+  height: 1vw;
+  min-height: 16px;
+  accent-color: var(--brand-accent);
+}
+
+.fieldHint {
+  margin: 0;
+  font-size: 0.82vw;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+.contactsSection {
+  margin-top: 1.5vh;
+  padding-top: 1.5vh;
+  border-top: 0.05vw solid #e8ecf1;
+}
+
+.contactsTitle {
+  margin: 0 0 1.2vh;
+  font-size: 0.95vw;
+  font-weight: 600;
+  color: var(--brand-primary);
+}
+
+.contactBlock {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1.5vh 2vw;
+  margin-bottom: 1.5vh;
+  padding-bottom: 1.5vh;
+  border-bottom: 0.05vw solid #f1f5f9;
+  position: relative;
+}
+
+.contactRemove {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  font-size: 1.1vw;
+  cursor: pointer;
+  padding: 0.2vh 0.4vw;
+  line-height: 1;
+}
+
+.contactRemove:hover {
+  color: var(--brand-accent);
+}
+
+.fieldError :global(.sc-input),
+.fieldError :global(.sc-custom-select) {
+  border-color: var(--brand-accent);
+}
+
+@media (max-width: 1200px) {
+  .contactBlock {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .flagsGrid {
+    grid-template-columns: 1fr;
+  }
+  .contactBlock {
+    grid-template-columns: 1fr;
+  }
+  .btnReset,
+  .btnSave,
+  .btnContact {
+    font-size: 0.9rem;
+  }
+}

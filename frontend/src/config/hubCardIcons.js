@@ -1,0 +1,76 @@
+/** Fallback icon keys for hub landing tiles when menu rows omit iconKey. */
+const HUB_CARD_ICON_BY_CODE = {
+  // Settings — top-level groups
+  company_setup_group: "company_setup",
+  app_setup_group: "app_setup",
+  roles_access: "roles_access",
+  governance_group: "roles_access",
+  data_mgmt_group: "data_management",
+  communication_group: "communication",
+  system_group: "system",
+  // Masters — hub groups
+  masters_purchase: "purchase",
+  masters_stores: "stores",
+  masters_quality: "quality",
+  masters_configuration: "data_management",
+  // Reports hub
+  reports_purchase: "purchase",
+  reports_inventory: "stores",
+  reports_quality: "quality",
+  reports_finance: "finance",
+  reports_vendor: "purchase",
+  reports_material: "stores",
+  reports_mis: "reports",
+  reports_executive: "dashboard",
+  // Purchase shortcuts
+  purchase_goods_receipt: "stores",
+  purchase_vendor_evaluation: "purchase",
+  purchase_source_list: "purchase",
+  purchase_purchase_register: "reports",
+  purchase_purchase_dashboard: "dashboard",
+  quality_inspection_parameters: "quality",
+  quality_inspection_checklist: "quality",
+  quality_inspection_plan: "quality",
+  quality_inspection_schedule: "quality",
+  finance_vendor_outstanding: "finance",
+  finance_finance_dashboard: "dashboard",
+  // Settings — nested cards
+  company_setup: "company_setup",
+  location_master: "location_master",
+  sub_locations: "sub_locations",
+  inventory_stores: "stores",
+  application_setup: "app_setup",
+  menu_setup: "menu_setup",
+  modules_setup: "modules_setup",
+  groups_setup: "groups_setup",
+  icons_setup: "icons_setup",
+  dashboard_role_mapping: "dashboard",
+  auto_increment: "auto_increment",
+  master_data: "data_management",
+  po_type: "purchase",
+  incidental_expenses: "purchase",
+  po_terms_and_conditions: "purchase",
+  item_document_types: "item_document",
+  item_attributes: "item_document",
+  bulk_import: "bulk_import",
+  email_setup: "communication",
+  file_manager: "file_manager",
+  audit_logs: "system",
+  active_users: "roles_access",
+  governance_user_management: "roles_access",
+  governance_role_management: "roles_access",
+  governance_approval_matrix: "roles_access",
+  governance_workflow_configuration: "roles_access",
+  governance_document_number_series: "auto_increment",
+  governance_email_templates: "communication",
+  governance_notification_templates: "communication",
+  governance_audit_logs: "system",
+  governance_company_configuration: "company_setup",
+  governance_financial_year: "company_setup",
+};
+
+export function resolveHubCardIconKey(code, iconKey) {
+  if (iconKey) return iconKey;
+  const key = String(code || "").trim();
+  return HUB_CARD_ICON_BY_CODE[key] || "";
+}

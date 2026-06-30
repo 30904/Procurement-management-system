@@ -1,0 +1,6 @@
+.revLink {
+  color: var(--brand-primary, #197dfa);
+  font-weight: 500;
+  cursor: default;
+  text-decoration: none;
+}

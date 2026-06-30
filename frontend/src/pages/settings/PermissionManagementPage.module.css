@@ -1,0 +1,370 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 0;
+  flex: 1;
+}
+
+.roleBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 0.75rem 1rem;
+  padding: 0.85rem 1rem;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.4rem;
+  border-bottom: 3px solid var(--brand-primary);
+}
+
+.roleField {
+  flex: 1;
+  min-width: 12rem;
+}
+
+.roleField label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #64748b;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.roleSelect {
+  width: 100%;
+  max-width: 22rem;
+  padding: 0.45rem 0.55rem;
+  font-size: 0.85rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.3rem;
+  font-family: inherit;
+  color: #0f172a;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.legendDot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+}
+
+.legendDotFull {
+  background: var(--brand-primary);
+}
+
+.legendDotView {
+  background: #93c5fd;
+}
+
+.legendDotNone {
+  background: #cbd5e1;
+}
+
+.toolbarRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.searchWrap {
+  flex: 1;
+  min-width: 10rem;
+}
+
+.secondaryBtn {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.78rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.3rem;
+  background: #fff;
+  color: #334155;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.secondaryBtn:hover {
+  border-color: var(--brand-primary);
+  color: var(--brand-primary);
+}
+
+.scrollArea {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 0.25rem;
+}
+
+.hubSection {
+  margin-bottom: 0.75rem;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.4rem;
+  overflow: hidden;
+}
+
+.hubHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.65rem 0.85rem;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  cursor: pointer;
+  user-select: none;
+}
+
+.hubHeader:hover {
+  background: #f1f5f9;
+}
+
+.hubIcon {
+  width: 1.35rem;
+  height: 1.35rem;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.hubIconLucide {
+  flex-shrink: 0;
+  color: var(--brand-primary);
+}
+
+.hubTitle {
+  flex: 1;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.hubMeta {
+  font-size: 0.72rem;
+  color: #64748b;
+}
+
+.chevron {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 2px solid #64748b;
+  border-bottom: 2px solid #64748b;
+  transform: rotate(-45deg);
+  transition: transform 0.15s;
+  flex-shrink: 0;
+}
+
+.chevronOpen {
+  transform: rotate(45deg);
+  margin-top: -0.2rem;
+}
+
+.hubBody {
+  padding: 0.5rem 0.85rem 0.75rem;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 0.75rem;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+.rowLabel {
+  flex: 1;
+  min-width: 8rem;
+  font-size: 0.8rem;
+  color: #334155;
+}
+
+.rowDesc {
+  display: block;
+  font-size: 0.68rem;
+  color: #94a3b8;
+  margin-top: 0.1rem;
+}
+
+.rowGroup {
+  background: #f8fafc;
+  border-radius: 0.25rem;
+  margin-top: 0.2rem;
+  padding-left: 0.4rem;
+}
+
+.subChevron {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-right: 2px solid #94a3b8;
+  border-bottom: 2px solid #94a3b8;
+  transform: rotate(-45deg);
+  transition: transform 0.15s;
+  flex-shrink: 0;
+  cursor: pointer;
+  margin-right: 0.25rem;
+}
+
+.subChevronOpen {
+  transform: rotate(45deg);
+  margin-top: -0.15rem;
+}
+
+.subGroup {
+  padding-left: 1.5rem;
+  border-left: 2px solid #e2e8f0;
+  margin-left: 0.6rem;
+  margin-bottom: 0.25rem;
+}
+
+.groupCount {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0.05rem 0.3rem;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #64748b;
+  background: #f1f5f9;
+  border-radius: 0.2rem;
+}
+
+.essentialBadge {
+  display: inline-block;
+  margin-left: 0.35rem;
+  padding: 0.1rem 0.35rem;
+  font-size: 0.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: var(--brand-primary);
+  background: var(--brand-primary-light);
+  border-radius: 0.2rem;
+}
+
+.accessToggle {
+  display: inline-flex;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.3rem;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.accessBtn {
+  padding: 0.3rem 0.55rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  border: none;
+  background: #fff;
+  color: #64748b;
+  cursor: pointer;
+  font-family: inherit;
+  border-right: 1px solid #e2e8f0;
+}
+
+.accessBtn:last-child {
+  border-right: none;
+}
+
+.accessBtn:hover:not(:disabled) {
+  background: #f8fafc;
+  color: var(--brand-primary);
+}
+
+.accessBtnActive {
+  background: var(--brand-primary);
+  color: #fff;
+}
+
+.accessBtnActive:hover:not(:disabled) {
+  background: var(--brand-primary-dark);
+  color: #fff;
+}
+
+.accessBtnViewActive {
+  background: var(--brand-primary-border);
+  color: #1d4ed8;
+}
+
+.accessBtn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.emptyState {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  padding: 0.75rem 0 0;
+  border-top: 1px solid #e2e8f0;
+  margin-top: 0.25rem;
+}
+
+.saveBtn {
+  padding: 0.5rem 1.25rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #fff;
+  background: var(--brand-primary);
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.saveBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.cancelBtn {
+  padding: 0.5rem 1rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #475569;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+@media (max-width: 640px) {
+  .accessToggle {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .accessBtn {
+    flex: 1;
+    text-align: center;
+  }
+
+  .row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

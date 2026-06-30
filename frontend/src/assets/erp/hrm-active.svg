@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.15 28.15" aria-hidden="true">
+  <defs>
+    <style>
+      .bg { fill: #f5f5ff; stroke: #f5f5ff; stroke-miterlimit: 10; stroke-width: .15px; }
+      .i { fill: var(--brand-primary, #197dfa); }
+    </style>
+  </defs>
+  <rect class="bg" x=".07" y=".07" width="28" height="28" rx="1"/>
+  <g class="i">
+    <circle cx="9.85" cy="8.75" r="2.05"/>
+    <path d="M5.85 19.35c.45-2.85 1.55-4.35 4-4.35s3.55 1.5 4 4.35"/>
+    <circle cx="18.35" cy="8.75" r="2.05"/>
+    <path d="M14.35 19.35c.45-2.85 1.55-4.35 4-4.35s3.55 1.5 4 4.35"/>
+  </g>
+</svg>

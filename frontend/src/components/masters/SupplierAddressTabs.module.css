@@ -1,0 +1,144 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4vh;
+}
+
+.tabRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6vw;
+  flex-wrap: wrap;
+  padding-bottom: 0.6vh;
+  border-bottom: 0.1vw solid var(--brand-primary, #197dfa);
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45vw;
+  flex: 1;
+  min-width: 0;
+}
+
+.tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35vw;
+  min-height: 36px;
+  padding: 0.45vh 0.85vw;
+  border: 0.06vw solid var(--brand-primary-border, #b8d4f5);
+  border-radius: 0.3vw;
+  background: var(--brand-primary-light, #eef6ff);
+  color: var(--brand-primary, #197dfa);
+  font-family: "Inter", sans-serif;
+  font-size: 0.82vw;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+.tab:hover {
+  background: rgba(var(--brand-primary-rgb, 25, 125, 250), 0.14);
+}
+
+.tabActive {
+  background: var(--brand-primary, #197dfa);
+  border-color: var(--brand-primary, #197dfa);
+  color: #fff;
+}
+
+.tabActive .tabBadge {
+  background: rgba(255, 255, 255, 0.22);
+  color: #fff;
+}
+
+.tabActive .tabRemove {
+  background: rgba(255, 255, 255, 0.25);
+  color: #fff;
+}
+
+.tabActive .tabRemove:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.tabLabel {
+  white-space: nowrap;
+}
+
+.tabBadge {
+  font-size: 0.65vw;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.15vh 0.35vw;
+  border-radius: 0.15vw;
+  background: rgba(var(--brand-primary-rgb, 25, 125, 250), 0.12);
+  color: var(--brand-primary, #197dfa);
+}
+
+.tabRemove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.15vw;
+  min-width: 18px;
+  height: 1.15vw;
+  min-height: 18px;
+  margin-left: 0.15vw;
+  border-radius: 50%;
+  background: rgba(var(--brand-primary-rgb, 25, 125, 250), 0.15);
+  color: var(--brand-primary, #197dfa);
+  flex-shrink: 0;
+}
+
+.tabRemove:hover {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.btnAdd {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.1vw;
+  min-width: 36px;
+  height: 2.1vw;
+  min-height: 36px;
+  padding: 0;
+  border: none;
+  border-radius: 0.25vw;
+  background: var(--brand-primary, #0f7c94);
+  color: #fff;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.btnAdd:hover {
+  background: var(--brand-primary-dark, #0c6a7e);
+  transform: scale(1.03);
+}
+
+.hint {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 0.75vw;
+  color: #64748b;
+  line-height: 1.4;
+}
+
+@media (max-width: 1100px) {
+  .tab {
+    font-size: 13px;
+  }
+
+  .tabBadge {
+    font-size: 10px;
+  }
+
+  .hint {
+    font-size: 12px;
+  }
+}

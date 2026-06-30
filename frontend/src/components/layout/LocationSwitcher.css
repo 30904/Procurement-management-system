@@ -1,0 +1,76 @@
+.location-switcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-right: 0.75rem;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.location-switcher__icon {
+  color: var(--brand-primary, #197dfa);
+  flex-shrink: 0;
+}
+
+.location-switcher__label {
+  display: none;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: #64748b;
+  white-space: nowrap;
+}
+
+@media (min-width: 768px) {
+  .location-switcher__label {
+    display: inline;
+  }
+}
+
+.location-switcher .sc-field {
+  gap: 0;
+  width: auto;
+  min-width: 0;
+}
+
+.location-switcher .sc-select-wrap {
+  width: auto;
+}
+
+.location-switcher .sc-custom-select {
+  height: 2.05rem;
+  min-width: 9.5rem;
+  max-width: 14rem;
+  width: auto;
+  padding: 0 0.45rem 0 0.6rem;
+  font-size: 0.8125rem;
+  border-width: 1px;
+  border-radius: 0.25rem;
+  border-color: #d2d2d2;
+  font-family: "Inter", sans-serif;
+}
+
+.location-switcher .sc-custom-select:focus,
+.location-switcher .sc-custom-select--open {
+  border-color: var(--brand-primary, #197dfa);
+  box-shadow: 0 0 0 2px var(--brand-primary-ring, rgba(25, 125, 250, 0.2));
+}
+
+.location-switcher .sc-custom-select__value {
+  font-size: 0.8125rem;
+}
+
+.location-switcher .sc-custom-select__arrow {
+  width: 0.65rem;
+  margin-left: 0.35rem;
+}
+
+@media (max-width: 767px) {
+  .location-switcher {
+    margin-right: 0.35rem;
+  }
+
+  .location-switcher .sc-custom-select {
+    min-width: 7.5rem;
+    max-width: 10rem;
+  }
+}

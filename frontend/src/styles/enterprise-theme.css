@@ -1,0 +1,422 @@
+/* ============================================================
+   SMART ERP — Enterprise Manufacturing Theme
+   Teal-blue + slate · white sidebar · SAP Fiori / BC inspired
+   Tokens apply before runtime branding; AppBranding may override --brand-*
+   ============================================================ */
+
+:root {
+  /* ── Brand ─────────────────────────────────────────────── */
+  --erp-primary: #0f7c94;
+  --erp-primary-hover: #0c6a7e;
+  --erp-primary-rgb: 15, 124, 148;
+  --erp-slate: #334155;
+  --erp-slate-dark: #1e293b;
+  --erp-text-muted: #64748b;
+  --erp-text-body: #475569;
+
+  /* Surfaces */
+  --erp-page-bg: #f8fafc;
+  --erp-card-bg: #ffffff;
+  --erp-border: #e2e8f0;
+  --erp-border-input: #cbd5e1;
+  --erp-hover-surface: #f1f5f9;
+  --erp-table-header-bg: #f1f5f9;
+  --erp-table-row-alt: #fafcfe;
+  --erp-table-hover: #f8fafc;
+
+  /* Status */
+  --erp-status-active: #16a34a;
+  --erp-status-pending: #f59e0b;
+  --erp-status-rejected: #dc2626;
+  --erp-status-draft: #64748b;
+
+  /* Semantic buttons */
+  --erp-btn-success: #16a34a;
+  --erp-btn-warning: #f59e0b;
+  --erp-btn-danger: #dc2626;
+
+  /* Radius — square corners app-wide */
+  --erp-radius-sm: 0;
+  --erp-radius-md: 0;
+  --erp-shadow-card: 0 1px 2px rgba(15, 23, 42, 0.04), 0 1px 3px rgba(15, 23, 42, 0.06);
+
+  /* Static fallbacks (overridden by AppBrandingContext when loaded) */
+  --brand-primary: var(--erp-primary);
+  --brand-primary-dark: var(--erp-primary-hover);
+  --brand-primary-light: #f1f5f9;
+  --brand-primary-bg: var(--erp-table-header-bg);
+  --brand-primary-border: #e2e8f0;
+  --brand-primary-ring: rgba(15, 124, 148, 0.18);
+  --brand-primary-outline: rgba(15, 124, 148, 0.25);
+  --brand-primary-shadow: rgba(15, 124, 148, 0.15);
+  --brand-primary-subtle: rgba(15, 124, 148, 0.08);
+  --brand-primary-10: rgba(15, 124, 148, 0.1);
+  --brand-primary-20: rgba(15, 124, 148, 0.2);
+  --brand-primary-35: rgba(15, 124, 148, 0.35);
+  --brand-primary-80: rgba(15, 124, 148, 0.85);
+  /* Legacy CTA token — maps to primary (see AppBrandingContext) */
+  --brand-accent: var(--brand-primary);
+  --brand-required: #dc2626;
+  --erp-sidebar-accent: var(--erp-primary);
+}
+
+/* ── Page canvas ─────────────────────────────────────────── */
+.erp-main,
+.erp-content {
+  background: var(--erp-page-bg) !important;
+}
+
+.erp-header {
+  background: var(--erp-card-bg) !important;
+  border-bottom: 1px solid var(--erp-border) !important;
+}
+
+.erp-company-name {
+  color: var(--erp-slate-dark) !important;
+  font-weight: 500;
+}
+
+.erp-subheader {
+  background: var(--erp-card-bg) !important;
+  border-bottom: 1px solid var(--erp-border) !important;
+}
+
+.erp-subheader-title {
+  color: var(--erp-primary) !important;
+  font-weight: 600;
+}
+
+.erp-footer {
+  background: var(--erp-card-bg) !important;
+  border-top: 1px solid var(--erp-border) !important;
+}
+
+.erp-footer-records {
+  background: var(--erp-page-bg) !important;
+  border-color: var(--erp-border-input) !important;
+}
+
+/* ── Breadcrumbs ─────────────────────────────────────────── */
+.erp-breadcrumb-item,
+.erp-breadcrumb-item--active {
+  color: var(--erp-primary) !important;
+  font-weight: 500;
+}
+
+.erp-breadcrumb-link {
+  color: var(--erp-text-muted) !important;
+}
+
+.erp-breadcrumb-link:hover {
+  color: var(--erp-primary) !important;
+  text-decoration: underline;
+}
+
+.im-page-title-minimal {
+  color: var(--erp-primary) !important;
+  font-weight: 600;
+}
+
+/* ── Sidebar (white · slate icons · teal active) ─────────── */
+.erp-sidebar-accent {
+  background: var(--erp-primary);
+  width: 0.35vw;
+  min-width: 3px;
+}
+
+.erp-sidebar-item:hover:not(.active)::before {
+  background: var(--erp-hover-surface) !important;
+  border-color: transparent !important;
+}
+
+.erp-sidebar-item:hover:not(.active) .erp-sidebar-label {
+  color: var(--erp-primary) !important;
+}
+
+.erp-sidebar-item.active::before {
+  inset: var(--erp-sidebar-item-inset-v) var(--erp-sidebar-item-inset-h) !important;
+  background: var(--erp-primary) !important;
+  border: none !important;
+  border-radius: var(--erp-radius-sm) !important;
+}
+
+.erp-sidebar-label {
+  color: var(--erp-slate) !important;
+  font-weight: 500;
+}
+
+.erp-sidebar-item.active .erp-sidebar-label {
+  color: #ffffff !important;
+  font-weight: 600;
+}
+
+.erp-lucide-icon.erp-sidebar-icon {
+  color: var(--erp-slate) !important;
+  stroke: var(--erp-slate) !important;
+}
+
+.erp-sidebar-item:hover:not(.active) .erp-lucide-icon.erp-sidebar-icon {
+  color: var(--erp-primary) !important;
+  stroke: var(--erp-primary) !important;
+}
+
+.erp-sidebar-item.active .erp-lucide-icon.erp-sidebar-icon {
+  color: #ffffff !important;
+  stroke: #ffffff !important;
+}
+
+.erp-sidebar-bottom-item.active,
+.erp-sidebar-bottom-item.flyout-open {
+  background: var(--erp-hover-surface) !important;
+  box-shadow: inset 0 0 0 1.5px var(--erp-primary) !important;
+}
+
+.erp-lucide-icon.erp-sidebar-bottom-icon {
+  color: var(--erp-primary) !important;
+  stroke: var(--erp-primary) !important;
+}
+
+.erp-sidebar-bottom-item.active .erp-lucide-icon.erp-sidebar-bottom-icon,
+.erp-sidebar-bottom-item.flyout-open .erp-lucide-icon.erp-sidebar-bottom-icon {
+  color: var(--erp-primary) !important;
+  stroke: var(--erp-primary) !important;
+}
+
+.erp-applications-flyout-item:hover:not(:disabled):not(.active) {
+  background: var(--erp-hover-surface) !important;
+}
+
+.erp-applications-flyout-item.active {
+  background: var(--erp-hover-surface) !important;
+}
+
+.erp-user-panel__action:hover {
+  background: var(--erp-hover-surface) !important;
+  color: var(--erp-primary) !important;
+}
+
+/* ── Section cards / panels ──────────────────────────────── */
+.erp-page-panel,
+.masters-section,
+.sc-section-frame,
+.im-section-card {
+  background: var(--erp-card-bg);
+  border: 1px solid var(--erp-border);
+  border-radius: var(--erp-radius-md);
+  box-shadow: var(--erp-shadow-card);
+}
+
+.masters-section-title,
+.sc-section-title,
+.erp-section-title {
+  color: var(--erp-primary) !important;
+  font-weight: 600 !important;
+}
+
+/* ── Forms ───────────────────────────────────────────────── */
+.sc-label {
+  color: var(--erp-slate) !important;
+  font-weight: 500 !important;
+}
+
+.sc-label-required::after {
+  color: var(--erp-status-rejected) !important;
+}
+
+.sc-input,
+.sc-select,
+.sc-custom-select {
+  border-color: var(--erp-border-input) !important;
+  border-radius: var(--erp-radius-sm) !important;
+  color: var(--erp-slate) !important;
+}
+
+.sc-input::placeholder,
+.sc-custom-select .sc-custom-select-placeholder {
+  color: var(--erp-text-muted) !important;
+}
+
+.sc-input:focus,
+.sc-select:focus,
+.sc-custom-select:focus,
+.sc-custom-select.open {
+  border-color: var(--erp-primary) !important;
+  box-shadow: 0 0 0 3px var(--brand-primary-ring) !important;
+}
+
+.sc-input:disabled,
+.sc-select:disabled {
+  background: var(--erp-page-bg) !important;
+}
+
+.sc-field-adjunct-btn:hover:not(:disabled) {
+  background: var(--erp-hover-surface) !important;
+}
+
+/* ── Tables ──────────────────────────────────────────────── */
+.im-table {
+  border-color: var(--erp-border) !important;
+  outline-color: var(--erp-border) !important;
+  border-radius: var(--erp-radius-md) !important;
+}
+
+.im-table thead tr {
+  background-color: var(--erp-table-header-bg) !important;
+}
+
+.im-table thead th {
+  color: var(--erp-slate) !important;
+  font-weight: 600 !important;
+  border-color: var(--erp-border) !important;
+}
+
+.im-table tbody td {
+  color: var(--erp-text-body) !important;
+  border-color: var(--erp-border) !important;
+}
+
+.im-table tbody tr:nth-child(even):not(.im-empty-row) td {
+  background-color: var(--erp-table-row-alt) !important;
+}
+
+.im-table tbody tr:not(.im-empty-row):hover td {
+  background-color: var(--erp-table-hover) !important;
+}
+
+/* ── Modals / dialogs ───────────────────────────────────── */
+.sc-modal {
+  border-radius: var(--erp-radius-md) !important;
+  box-shadow: 0 8px 30px rgba(15, 23, 42, 0.12) !important;
+}
+
+.sc-modal-bar {
+  display: none;
+}
+
+.sc-modal-header {
+  background: var(--erp-primary) !important;
+  border-bottom: none !important;
+  padding: 1.4vh 1.8vw !important;
+}
+
+.sc-modal-title {
+  color: #ffffff !important;
+  font-weight: 600 !important;
+}
+
+.sc-modal-close img {
+  filter: brightness(0) invert(1);
+}
+
+/* Primary save/action buttons in modal footers (override .sc-input slate text) */
+.sc-modal-footer button.sc-input.sc-modal-btn-primary,
+.sc-modal-footer button.sc-input[style*="brand-primary"] {
+  color: #ffffff !important;
+  background: var(--erp-primary, var(--brand-primary)) !important;
+  border-color: var(--erp-primary, var(--brand-primary)) !important;
+  font-weight: 600;
+}
+
+.sc-modal-footer button.sc-input.sc-modal-btn-primary:hover:not(:disabled),
+.sc-modal-footer button.sc-input[style*="brand-primary"]:hover:not(:disabled) {
+  background: var(--brand-primary-dark, #0c6a7e) !important;
+  border-color: var(--brand-primary-dark, #0c6a7e) !important;
+}
+
+.sc-modal-footer button.sc-input.sc-modal-btn-primary:disabled,
+.sc-modal-footer button.sc-input[style*="brand-primary"]:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.sc-modal-footer .btnSaveClose {
+  color: #ffffff !important;
+}
+
+/* ── Hub tiles ───────────────────────────────────────────── */
+.masters-tile {
+  border-color: var(--erp-border) !important;
+  border-radius: var(--erp-radius-md) !important;
+  box-shadow: var(--erp-shadow-card) !important;
+}
+
+.masters-tile-icon {
+  color: var(--erp-primary) !important;
+}
+
+.masters-tile--admin {
+  border-color: var(--erp-primary) !important;
+}
+
+.masters-tile--hidden {
+  border: 1px dotted var(--brand-required, #dc2626) !important;
+  border-style: dotted !important;
+}
+
+/* ── Links ───────────────────────────────────────────────── */
+a.erp-link,
+.erp-text-link {
+  color: var(--erp-primary);
+  text-decoration: none;
+}
+
+a.erp-link:hover,
+.erp-text-link:hover {
+  text-decoration: underline;
+}
+
+/* ── Primary / secondary actions (CSS modules & globals) ─── */
+.enterprise-btn-primary,
+[class*="primaryBtn"],
+[class*="saveBtn"]:not([class*="danger"]) {
+  background: var(--erp-primary) !important;
+  color: #fff !important;
+  border: none !important;
+}
+
+.enterprise-btn-primary:hover:not(:disabled),
+[class*="primaryBtn"]:hover:not(:disabled) {
+  background: var(--erp-primary-hover) !important;
+}
+
+.enterprise-btn-secondary {
+  background: #fff !important;
+  border: 1px solid var(--erp-border-input) !important;
+  color: var(--erp-slate) !important;
+}
+
+.enterprise-btn-secondary:hover:not(:disabled) {
+  background: var(--erp-page-bg) !important;
+}
+
+/* ── Location scope / info banners ───────────────────────── */
+.locationScopeNote {
+  background: var(--erp-hover-surface) !important;
+  border-color: var(--erp-border) !important;
+}
+
+.locationScopeNote strong {
+  color: var(--erp-primary) !important;
+}
+
+/* ── Dashboard / hub shells ──────────────────────────────── */
+.dashboard-shell,
+.hub-landing-page {
+  background: var(--erp-page-bg);
+}
+
+/* ── Confirm dialog accent bar ───────────────────────────── */
+.confirm-dialog .bar,
+[class*="ConfirmDialog"] .bar {
+  background: var(--erp-primary);
+}
+
+/* ── Revision / list modals using rl-modal ───────────────── */
+.rl-modal .sc-modal-header {
+  background: var(--erp-primary) !important;
+  border-bottom: none !important;
+}
+
+.rl-modal .sc-modal-title {
+  color: #ffffff !important;
+}

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 152.08 23.69">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ff0028;
+      }
+
+      .cls-2 {
+        fill: url(#linear-gradient-2);
+      }
+
+      .cls-3 {
+        fill: #005afa;
+      }
+
+      .cls-4 {
+        fill: #006efa;
+      }
+
+      .cls-5 {
+        fill: #00c8af;
+      }
+
+      .cls-6 {
+        fill: #007dfa;
+      }
+
+      .cls-7 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-8 {
+        fill: #faaa46;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="-211.77" y1="1026.56" x2="-207.1" y2="1026.56" gradientTransform="translate(1051.8074 138.6378) rotate(85.4199)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#d0d0d0"/>
+      <stop offset=".34" stop-color="#e1e1e1"/>
+      <stop offset=".81" stop-color="#fff"/>
+    </linearGradient>
+    <linearGradient id="linear-gradient-2" x1="-211.21" y1="1026.56" x2="-207.67" y2="1026.56" gradientTransform="translate(1051.8074 138.6378) rotate(85.4199)" gradientUnits="userSpaceOnUse">
+      <stop offset=".19" stop-color="#fff"/>
+      <stop offset=".66" stop-color="#e1e1e1"/>
+      <stop offset="1" stop-color="#d0d0d0"/>
+    </linearGradient>
+  </defs>
+  <g id="Menu">
+    <g>
+      <g>
+        <g>
+          <polygon class="cls-8" points="12.91 9.3 6.46 8.01 0 6.73 5.34 10.56 10.68 14.39 9.94 11.04 12.91 9.3"/>
+          <polygon class="cls-5" points="18.25 13.13 12.91 9.3 13.65 12.65 10.68 14.39 17.14 15.68 23.6 16.96 18.25 13.13"/>
+        </g>
+        <g>
+          <polygon class="cls-1" points="15.63 6.48 16.93 0 13.1 5.37 9.26 10.74 12.61 9.98 14.34 12.95 15.63 6.48"/>
+          <polygon class="cls-6" points="10.99 13.71 9.26 10.74 7.96 17.21 6.66 23.69 10.5 18.32 14.34 12.95 10.99 13.71"/>
+        </g>
+        <g>
+          <path class="cls-7" d="M14.34,12.94c-.48,1.11-2,1.53-3.41.92-1.4-.6-2.16-2-1.68-3.11.48-1.11,2-1.53,3.41-.92,1.4.61,2.16,2,1.68,3.11Z"/>
+          <path class="cls-2" d="M9.91,12.08c-.1-.35-.09-.71.05-1.03.19-.44.57-.75,1.07-.89.46-.12.97-.08,1.43.12.6.26,1.05.75,1.22,1.33.1.35.09.71-.05,1.03-.19.43-.57.75-1.07.89-.46.12-.97.08-1.43-.12-.6-.26-1.06-.75-1.22-1.33Z"/>
+        </g>
+      </g>
+      
+      <text x="32" y="16"
+            font-family="Arial, Helvetica, sans-serif"
+            font-size="12"
+            font-weight="700"
+            fill="#005afa">Smart App</text>
+    </g>
+  </g>
+</svg>

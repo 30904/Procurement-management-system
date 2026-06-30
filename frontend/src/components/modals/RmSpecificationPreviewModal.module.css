@@ -1,0 +1,37 @@
+.modalWide {
+  width: min(1100px, 98vw);
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem 1rem;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #e8edf4;
+  font-size: 0.875rem;
+}
+
+.metaLabel {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--brand-primary, #197dfa);
+  margin-bottom: 0.15rem;
+}
+
+.checklistBlock {
+  padding: 0 1rem 0.75rem;
+}
+
+.sectionTitle {
+  margin: 0.75rem 0 0.5rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+@media (max-width: 700px) {
+  .meta {
+    grid-template-columns: 1fr;
+  }
+}

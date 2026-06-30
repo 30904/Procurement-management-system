@@ -1,0 +1,10 @@
+.table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.providerCell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

@@ -1,0 +1,237 @@
+.tabs {
+  display: flex;
+  gap: 1.5vw;
+  padding: 0 1.2vw;
+  border-bottom: 0.06vw solid #e2e8f0;
+}
+
+.tab {
+  border: none;
+  background: none;
+  padding: 1vh 0.2vw;
+  font-size: 0.92vw;
+  font-weight: 600;
+  color: #64748b;
+  cursor: pointer;
+  border-bottom: 0.18vw solid transparent;
+  margin-bottom: -0.06vw;
+}
+
+.tabActive {
+  color: var(--brand-primary, #197dfa);
+  border-bottom-color: var(--brand-primary, #197dfa);
+}
+
+.arrowRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.2fr);
+  gap: 0.8vw;
+  align-items: end;
+}
+
+.arrowLabel {
+  font-size: 0.82vw;
+  font-weight: 600;
+  color: #334155;
+  padding-bottom: 0.55vh;
+}
+
+.arrow {
+  color: var(--brand-primary, #197dfa);
+  font-weight: 700;
+  padding-bottom: 0.55vh;
+}
+
+.totalRow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.8vw;
+  margin-top: 1.5vh;
+  font-size: 0.88vw;
+  font-weight: 600;
+  color: #334155;
+}
+
+.totalArrow {
+  color: var(--brand-primary, #197dfa);
+}
+
+.totalValue {
+  min-width: 8rem;
+  padding: 0.6vh 0.8vw;
+  border: 0.06vw solid #cbd5e1;
+  border-radius: 0.2vw;
+  background: #f8fafc;
+  text-align: right;
+}
+
+.termsControl {
+  min-width: 0;
+}
+
+.termsControl :global(.sc-field) {
+  margin: 0;
+}
+
+.termsControlWithBtn {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: 4.3vh;
+  column-gap: 0.45vw;
+  align-items: stretch;
+}
+
+.termsControlWithBtn :global(.sc-field) {
+  display: contents;
+  margin: 0;
+}
+
+.termsControlWithBtn :global(.sc-input),
+.termsControlWithBtn :global(.sc-input-suffix-wrap) {
+  grid-column: 1;
+  grid-row: 1;
+  height: 100%;
+  min-height: 0;
+}
+
+.termsControlWithBtn :global(.sc-field-adjunct-btn) {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: stretch;
+  width: 4.3vh;
+  height: 100%;
+  max-height: 4.3vh;
+}
+
+.termsTextarea {
+  width: 100%;
+  min-height: 4.5rem;
+  resize: vertical;
+}
+
+.currencyField {
+  display: flex;
+  align-items: stretch;
+}
+
+.currencyPrefix {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 0.65vw;
+  border: 0.06vw solid #cbd5e1;
+  border-right: none;
+  border-radius: 0.2vw 0 0 0.2vw;
+  background: #f8fafc;
+  color: #475569;
+  font-size: 0.82vw;
+  font-weight: 600;
+}
+
+.currencyField :global(.sc-input) {
+  border-radius: 0 0.2vw 0.2vw 0;
+  text-align: right;
+}
+
+.scheduleTable :global(thead th),
+.scheduleTable :global(tbody td) {
+  padding: 0.5vh 0.4vw;
+  font-size: 0.82vw;
+}
+
+.scheduleTable :global(.sc-field) {
+  margin: 0;
+}
+
+.percentField {
+  position: relative;
+  min-width: 0;
+}
+
+.percentField :global(.sc-input) {
+  width: 100%;
+  padding-right: 1.6rem;
+}
+
+.percentSuffix {
+  position: absolute;
+  right: 0.55rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #64748b;
+  font-size: 0.82vw;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.rateTrendTable :global(thead th),
+.rateTrendTable :global(tbody td) {
+  padding: 0.6vh 0.5vw;
+  font-size: 0.86vw;
+}
+
+.itemTagSubTitle {
+  margin-left: 0.8vw;
+  font-size: 0.88vw;
+  font-weight: 500;
+  color: #334155;
+}
+
+.itemTagRow {
+  display: grid;
+  grid-template-columns: 12rem auto minmax(0, 1fr) auto;
+  gap: 0.7vw;
+  align-items: center;
+}
+
+.itemTagRowView {
+  display: grid;
+  grid-template-columns: 12rem auto minmax(0, 1fr);
+  gap: 0.7vw;
+  align-items: center;
+}
+
+.itemTagLabel {
+  font-size: 0.86vw;
+  font-weight: 600;
+  color: #0369a1;
+}
+
+.itemTagCheckWrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  position: relative;
+  cursor: pointer;
+}
+
+.itemTagCheckWrap input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.itemTagCheckBox {
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid var(--brand-primary);
+  border-radius: 0.16rem;
+  background: #fff;
+}
+
+.itemTagCheckWrap input:checked + .itemTagCheckBox {
+  background: var(--brand-primary);
+  box-shadow: inset 0 0 0 2px #fff;
+}
+
+.itemTagPreview {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.7vw;
+  margin-top: 0.6vh;
+  font-size: 0.86vw;
+  color: #334155;
+}

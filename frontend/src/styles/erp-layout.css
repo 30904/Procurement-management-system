@@ -1,0 +1,1029 @@
+/* ============================================================
+   SMART ERP — erp-layout.css
+   Base units: vw  |  Font: Inter  |  Canvas ref: 1366 × 768
+     Sidebar  : 13.7vw wide (--erp-sidebar-w), 100vh tall
+     Accent   : 0.75vw wide, blue #6e8cf0
+     Header   : left var(--erp-sidebar-w), height 3.6vw (--erp-header-h)
+     Subheader: top 3.2vw inside erp-main, height 3.2vw
+     Footer   : bottom of erp-main, height 2.9vw
+   Ported verbatim from frontend-client/src/styles/components.css
+   ============================================================ */
+
+/* ── Layout shell ──────────────────────────────────────────── */
+:root {
+  /* Same as .erp-header height; toasts and fixed UI use this from outside .erp-layout */
+  --erp-header-h: 3.6vw;
+  /* Shared page top padding for .erp-page shells */
+  --erp-page-pad-top: 1.5vh;
+  /* Vertical offset for header strip + sidebar logo row (keep stack aligned) */
+  --erp-header-top-margin: 0.5vh;
+  /* Total sidebar width (accent + inner); header/main align to this */
+  --erp-sidebar-w: 13.7vw;
+  /* Left edge strip + active nav pill (must match) */
+  --erp-sidebar-accent: var(--brand-primary, #0f7c94);
+  /* Nav row: horizontal inset for hover/active pill (::before) — match .active::after left */
+  --erp-sidebar-item-inset-h: 0.98vw;
+  /* Nav row: vertical inset for pill + sidenotch — lower value = taller pill */
+  --erp-sidebar-item-inset-v: 0.56vh;
+  /* Active pill only: larger inset = shorter pill; row height unchanged */
+  --erp-sidebar-item-active-inset-v: 0.72vh;
+  /* Active sidenotch bar width */
+  --erp-sidebar-item-notch-w: 0.2vw;
+  /* Pill radius (active notch stripe is painted in the same ::before via gradient) */
+  --erp-sidebar-item-pill-radius: 0.35vw;
+  /* Active pill border + notch stripe — same RGBA so opacity matches */
+  --erp-sidebar-item-active-accent-a: var(--brand-primary-80, rgba(15, 124, 148, 0.85));
+}
+.erp-layout {
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ============================================================
+   SIDEBAR
+   Fixed full-height strip on the left.
+   Structure: accent-bar | inner(logo-slot / nav-list / bottom-row)
+   ============================================================ */
+
+.erp-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--erp-sidebar-w);
+  height: 100vh;
+  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  /* Above .erp-header so the right edge shadow runs full height (logo row + nav);
+     opaque sidebar is still only --erp-sidebar-w wide; main/header content stays usable. */
+  z-index: 215;
+  overflow: visible;
+  user-select: none;
+  -webkit-user-select: none;
+  /* Soft separation from main content (replaces hard right border) */
+  box-shadow:
+    0.05vw 0 0.32vw rgba(70, 80, 90, 0.16),
+    0.1vw 0 0.65vw rgba(70, 80, 90, 0.13);
+}
+
+.erp-sidebar img {
+  -webkit-user-drag: none;
+}
+
+.erp-sidebar-accent {
+  width: 0.75vw;
+  height: 100%;
+  background: var(--erp-sidebar-accent);
+  flex-shrink: 0;
+}
+
+.erp-sidebar-inner {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Logo — first row, aligns with the header height */
+.erp-sidebar-logo-slot {
+  height: var(--erp-header-h);
+  min-height: var(--erp-header-h);
+  display: flex;
+  align-items: center;
+  padding: 0 0.9vw;
+  flex-shrink: 0;
+  position: relative;
+  margin-top: var(--erp-header-top-margin);
+}
+
+/* Border-bottom inset 0.9vw each side — only the line is padded */
+.erp-sidebar-logo-slot::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0.05vw;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 1) 0%,
+    rgb(225, 225, 225) 18%,
+    rgb(196, 196, 196) 50%,
+    rgb(225, 225, 225) 82%,
+    rgba(255, 255, 255, 1) 100%
+  );
+}
+
+.erp-sidebar-logo {
+  height: 70%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* Nav list — scrollable module rows */
+.erp-sidebar-nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: 1.3vh;
+  row-gap: 0.65vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+.erp-sidebar-nav::-webkit-scrollbar { display: none; }
+
+/* Each module row */
+.erp-sidebar-item {
+  /* Keep current responsive height, but prevent over-compression on smaller viewports */
+  height: max(calc(100vh / 17.5), 2.8rem);
+  display: flex;
+  align-items: center;
+  gap: 0.95vw;
+  padding: 0.18vh 1.68vw 0.18vh 1.7vw;
+  box-sizing: border-box;
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+}
+
+/* Inset background block — drawn via ::before so it never touches the row edges */
+.erp-sidebar-item::before {
+  content: '';
+  position: absolute;
+  inset: var(--erp-sidebar-item-inset-v) var(--erp-sidebar-item-inset-h);
+  border-radius: var(--erp-sidebar-item-pill-radius);
+  background: transparent;
+  border: 0.05vw solid transparent;
+  transition: background 0.15s ease, border-color 0.15s ease;
+  z-index: 0;
+}
+
+.erp-sidebar-item:hover:not(.active)::before {
+  background: #f1f5f9;
+}
+
+/* Active nav — solid teal pill (enterprise sidebar) */
+.erp-sidebar-item.active::before {
+  inset: var(--erp-sidebar-item-inset-v) var(--erp-sidebar-item-inset-h);
+  background: var(--erp-sidebar-accent, #0f7c94);
+  border: none;
+  border-radius: 0;
+}
+
+/* Icon and label sit above the ::before layer */
+.erp-sidebar-icon {
+  width: 3.5vh;
+  height: 3.5vh;
+  object-fit: contain;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.erp-lucide-icon.erp-sidebar-icon {
+  width: 1.35vw;
+  height: 1.35vw;
+  min-width: 18px;
+  min-height: 18px;
+  max-width: 22px;
+  max-height: 22px;
+  color: #334155;
+  stroke: #334155;
+}
+
+.erp-sidebar-item:hover:not(.active) .erp-lucide-icon.erp-sidebar-icon {
+  color: var(--erp-sidebar-accent);
+  stroke: var(--erp-sidebar-accent);
+}
+
+.erp-sidebar-item.active .erp-lucide-icon.erp-sidebar-icon {
+  color: #ffffff;
+  stroke: #ffffff;
+}
+
+.erp-sidebar-label {
+  font-size: 1.05vw;
+  font-weight: 500;
+  color: #334155;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  z-index: 1;
+}
+
+.erp-sidebar-item.active .erp-sidebar-label {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Thin gradient rule between Dispatch and Reports */
+.erp-sidebar-separator {
+  height: 1px;
+  min-height: 1px;
+  flex-shrink: 0;
+  margin: 0.35vh 1.35vw 0.35vh 1.55vw;
+  border: none;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(210, 210, 210, 0.55) 22%,
+    rgba(170, 170, 170, 0.75) 50%,
+    rgba(210, 210, 210, 0.55) 78%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+/* Bottom utility bar — 4 equal cells, dividers, active cell outline */
+.erp-sidebar-bottom {
+  flex-shrink: 0;
+  margin-top: auto;
+  background: #ffffff;
+  position: relative;
+  border-top: 1px solid #e6e6e6;
+}
+
+.erp-sidebar-bottom-row {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  height: 2.9vw;
+  min-height: 2.75rem;
+  background: #ffffff;
+}
+
+.erp-sidebar-bottom-item {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background-color 0.12s ease;
+}
+
+.erp-sidebar-bottom-item + .erp-sidebar-bottom-item {
+  border-left: 1px solid #e6e6e6;
+}
+
+.erp-sidebar-bottom-item:hover:not(:disabled):not(.active):not(.flyout-open) {
+  background: #fafcff;
+}
+
+.erp-sidebar-bottom-item.active,
+.erp-sidebar-bottom-item.flyout-open {
+  z-index: 2;
+  background: var(--brand-primary-light, #eef6ff);
+  box-shadow: inset 0 0 0 1.5px var(--erp-sidebar-accent);
+}
+
+.erp-sidebar-bottom-item.restricted {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.erp-sidebar-bottom-item:disabled {
+  cursor: not-allowed;
+}
+
+.erp-sidebar-bottom-icon {
+  width: 1.72vw;
+  height: 1.58vw;
+  min-width: 21px;
+  min-height: 19px;
+  max-width: 28px;
+  max-height: 26px;
+  display: block;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+  object-fit: contain;
+}
+
+.erp-lucide-icon.erp-sidebar-bottom-icon {
+  width: 1.15vw;
+  height: 1.15vw;
+  min-width: 17px;
+  min-height: 17px;
+  max-width: 22px;
+  max-height: 22px;
+  color: var(--erp-primary, var(--erp-sidebar-accent));
+  stroke: var(--erp-primary, var(--erp-sidebar-accent));
+}
+
+/* Applications flyout — opens to the right of the sidebar footer */
+.erp-applications-flyout {
+  position: fixed;
+  left: calc(var(--erp-sidebar-w) + 0.35vw);
+  bottom: 0.65vh;
+  z-index: 230;
+  width: 13.2vw;
+  min-width: 11.5rem;
+  max-width: 16.5rem;
+  background: #ffffff;
+  border: 1px solid #e3e3e3;
+  border-radius: 0.2vw;
+  box-shadow:
+    0.12vw 0.2vw 0.55vw rgba(70, 80, 90, 0.12),
+    0.2vw 0.35vw 1vw rgba(70, 80, 90, 0.1);
+  overflow: hidden;
+}
+
+.erp-applications-flyout-item {
+  width: 100%;
+  margin: 0;
+  padding: 0.95vh 0.85vw;
+  border: none;
+  border-bottom: 1px solid #ececec;
+  background: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.75vw;
+  text-align: left;
+  transition: background-color 0.12s ease;
+}
+
+.erp-applications-flyout-item.last {
+  border-bottom: none;
+}
+
+.erp-applications-flyout-item:hover:not(:disabled):not(.active) {
+  background: #fafcff;
+}
+
+.erp-applications-flyout-item.active {
+  background: #f5f8ff;
+}
+
+.erp-applications-flyout-item.active .erp-applications-flyout-label {
+  color: var(--erp-sidebar-accent);
+  font-weight: 500;
+}
+
+.erp-applications-flyout-item.restricted {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.erp-applications-flyout-icon-wrap {
+  flex-shrink: 0;
+  width: 2.1vw;
+  height: 2.1vw;
+  min-width: 26px;
+  min-height: 26px;
+  max-width: 32px;
+  max-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.erp-applications-flyout-icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.erp-lucide-icon.erp-applications-flyout-icon {
+  width: 1.25vw;
+  height: 1.25vw;
+  min-width: 18px;
+  min-height: 18px;
+  max-width: 22px;
+  max-height: 22px;
+  color: var(--erp-sidebar-accent);
+  stroke: var(--erp-sidebar-accent);
+}
+
+.erp-applications-flyout-item.active .erp-lucide-icon.erp-applications-flyout-icon {
+  color: var(--erp-sidebar-accent);
+}
+
+.erp-applications-flyout-label {
+  font-size: 0.98vw;
+  font-weight: 450;
+  color: #46505a;
+  font-family: "Inter", sans-serif;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   HEADER
+   Fixed bar top-right, starts exactly at the sidebar's edge.
+   Left: var(--erp-sidebar-w) | Height: 3.6vw | z-index below sidebar (shadow continuity)
+   ============================================================ */
+
+.erp-header {
+  position: fixed;
+  top: 0;
+  margin-top: var(--erp-header-top-margin);
+  /* Overlap seam 1px so no anti-aliased gap vs sidebar */
+  left: calc(var(--erp-sidebar-w) - 1px);
+  width: calc(100% - var(--erp-sidebar-w) + 1px);
+  height: var(--erp-header-h);
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  z-index: 210;
+}
+
+.erp-company-name {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-size: 1.25vw;
+  font-weight: 500;
+  color: #1e293b;
+  padding-left: 2.3vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: 'Inter', sans-serif;
+}
+
+.erp-header-squares {
+  display: flex;
+  align-items: center;
+  height: 2.5vw;
+  flex-shrink: 0;
+  margin-right: 2.2vw;
+  gap: 0.5vw;
+}
+
+.erp-header-square {
+  background: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25vw;
+  transition: box-shadow 0.15s ease;
+}
+
+.erp-header-square--active {
+  box-shadow:
+    0 0.12vh 0.25vw rgba(70, 80, 90, 0.2),
+    0 0.04vh 0.1vw rgba(70, 80, 90, 0.14);
+}
+
+.erp-square-icon {
+  height: 2.3vw;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* — User account panel (header account icon) — no full-screen backdrop — */
+.erp-user-panel {
+  position: fixed;
+  top: calc(var(--erp-header-h) + var(--erp-header-top-margin) + 0.7vh);
+  right: 1.9vw;
+  z-index: 260;
+  width: min(20vw, 300px);
+  background: #ffffff;
+  border: 0.1vw solid #e6ebf3;
+  border-radius: 0.2vw;
+  box-shadow:
+    0 0.8vh 1.8vw rgba(15, 23, 42, 0.12),
+    0 0.2vh 0.5vw rgba(15, 23, 42, 0.08);
+  padding: 2vh 0.9vw 1.1vh;
+  font-family: "Inter", sans-serif;
+}
+
+.erp-user-panel__close {
+  position: absolute;
+  top: 1.5vh;
+  right: 0.45vw;
+  border: none;
+  background: transparent;
+  width: 1.6vw;
+  min-width: 20px;
+  height: 1.6vw;
+  min-height: 20px;
+  padding: 0.15vw;
+  cursor: pointer;
+  line-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.3vw;
+  transition: background 0.15s ease, opacity 0.15s ease;
+}
+
+.erp-user-panel__close img {
+  height: 0.78vw;
+  width: auto;
+  min-height: 10px;
+  opacity: 0.75;
+}
+
+.erp-user-panel__close:hover img {
+  opacity: 1;
+}
+
+.erp-user-panel__close:hover {
+  background: #f3f6fb;
+}
+
+.erp-user-panel__head {
+  display: flex;
+  gap: 0.7vw;
+  align-items: center;
+  padding-right: 1.4vw;
+}
+
+.erp-user-panel__avatar-box {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.erp-user-panel__avatar {
+  width: 2.65vw;
+  min-width: 34px;
+  height: auto;
+  object-fit: contain;
+}
+
+.erp-user-panel__meta {
+  min-width: 0;
+  flex: 1;
+}
+
+.erp-user-panel__name {
+  margin: 0 0 0.8vh;
+  font-size: 0.94vw;
+  font-weight: 600;
+  color: #2b3747;
+  line-height: 1.25;
+}
+
+.erp-user-panel__line {
+  margin: 0.8vh 0 0;
+  font-size: 0.82vw;
+  line-height: 1.35;
+  color: #607080;
+}
+
+.erp-user-panel__label {
+  font-weight: 500;
+  color: #39485a;
+}
+
+.erp-user-panel__value {
+  font-weight: 400;
+  color: #607080;
+  word-break: break-word;
+}
+
+.erp-user-panel__sep {
+  height: 0.1vh;
+  background: #e6ebf3;
+  margin: 1.2vh 0 0.9vh;
+  border: none;
+}
+
+.erp-user-panel__action {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: transparent;
+  padding: 0.9vh 0.55vw;
+  font-size: 0.9vw;
+  font-weight: 500;
+  color: #3a4858;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  border-radius: 0.28vw;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.erp-user-panel__action + .erp-user-panel__action {
+  margin-top: 0.25vh;
+}
+
+.erp-user-panel__action:hover {
+  color: var(--brand-primary);
+  background: #eef5ff;
+}
+
+/* ============================================================
+   MAIN AREA  (below header incl. --erp-header-top-margin | left: var(--erp-sidebar-w))
+   Column flex: subheader(3.2vw) + content(fills rest) + footer(2.9vw)
+   ============================================================ */
+
+.erp-main {
+  position: fixed;
+  top: calc(var(--erp-header-h) + var(--erp-header-top-margin));
+  left: calc(var(--erp-sidebar-w) - 1px);
+  width: calc(100% - var(--erp-sidebar-w) + 1px);
+  height: calc(100vh - var(--erp-header-h) - var(--erp-header-top-margin));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #f8fafc;
+}
+
+/* Content canvas — scrollable area below the subheader */
+.erp-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #f8fafc;
+  scrollbar-gutter: stable;
+}
+
+/* ============================================================
+   SUBHEADER  (first row inside erp-main)
+   Left side: back-btn + page title
+   Right side: search bar + action buttons
+   ============================================================ */
+
+.erp-subheader {
+  height: 2.7vw;
+  min-height: 2.7vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.2vw;
+  background: #ffffff;
+  border-bottom: 0.1vw solid #d2d2d2;
+  flex-shrink: 0;
+}
+
+.erp-subheader-left {
+  display: flex;
+  align-items: center;
+  gap: 0.8vw;
+  margin-top: -0.5vh;
+}
+
+.erp-back-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  line-height: 0;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.erp-back-btn:focus {
+  outline: none;
+}
+
+.erp-back-btn:focus-visible {
+  outline: 0.15vw solid var(--brand-primary);
+  outline-offset: 0.2vw;
+}
+
+.erp-back-icon {
+  display: block;
+  height: 1.5vw;
+  min-height: 22px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Default: outlined teal (attachment 2). Hover/active: filled — CSS only, no stuck JS state */
+.erp-back-btn .erp-back-icon--hover {
+  display: none;
+}
+
+.erp-back-btn:hover .erp-back-icon--default,
+.erp-back-btn:active .erp-back-icon--default {
+  display: none;
+}
+
+.erp-back-btn:hover .erp-back-icon--hover,
+.erp-back-btn:active .erp-back-icon--hover {
+  display: block;
+}
+
+/* After click, :focus alone must not keep the filled icon */
+.erp-back-btn:focus:not(:hover) .erp-back-icon--default {
+  display: block;
+}
+
+.erp-back-btn:focus:not(:hover) .erp-back-icon--hover {
+  display: none;
+}
+
+.erp-subheader-title {
+  font-size: 1.08vw;
+  font-weight: 450;
+  color: #506ed2;
+  font-family: 'Inter', sans-serif;
+}
+
+.erp-subheader-right {
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+}
+
+/* ── Footer bar (mirrors sidebar bottom row height) ─────────── */
+.erp-footer {
+  min-height: 2.9vw;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding: 0.35rem 2.2vw;
+  background: #ffffff;
+  border-top: 0.1vw solid #d2d2d2;
+  overflow: visible;
+}
+
+.erp-footer .erp-footer-meta {
+  width: 100%;
+}
+
+.erp-footer-records {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4vw;
+  padding: 0.5vh 0.75vw;
+  background: #fafaff;
+  border: 0.1vw solid var(--brand-primary);
+  border-radius: 0.2vw;
+  font-size: 0.9vw;
+  font-weight: 450;
+  color: #46505a;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+  -webkit-font-feature-settings: "calt" 1;
+  font-feature-settings: "calt" 1;
+}
+
+.erp-footer-meta {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  justify-content: stretch;
+  gap: 1.2vw;
+}
+
+.erp-footer-meta--pagination-only {
+  grid-template-columns: auto;
+  justify-content: flex-end;
+  width: auto;
+}
+
+.erp-footer-pagination {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 2rem;
+  justify-self: center;
+}
+
+.erp-footer-page-btn {
+  min-width: 2rem;
+  min-height: 2rem;
+  width: 2rem;
+  height: 2rem;
+  border: 0.1vw solid var(--brand-primary, #197dfa);
+  background: #fafaff;
+  border-radius: 0.15vw;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  cursor: pointer;
+  color: var(--brand-primary, #197dfa);
+  flex-shrink: 0;
+}
+
+.erp-footer-page-btn:hover:not(:disabled) {
+  background: var(--brand-primary-light, #eef6ff);
+}
+
+.erp-footer-page-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.erp-footer-page-btn svg {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+}
+
+.erp-footer-page-btn img {
+  height: 1.125rem;
+  width: 1.125rem;
+  object-fit: contain;
+}
+
+.erp-footer-page-label {
+  min-height: 2rem;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  border: 0.1vw solid var(--brand-primary);
+  border-radius: 0.15vw;
+  font-size: clamp(0.75rem, 0.9vw, 0.95rem);
+  font-weight: 400;
+  color: #46505a;
+  background: #ffffff;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.erp-footer-page-prefix,
+.erp-footer-page-current,
+.erp-footer-page-total {
+  height: 100%;
+  display: inline-flex;
+  align-items: center;
+}
+
+.erp-footer-page-prefix {
+  padding: 0 0.65vw;
+  background: #fafaff;
+}
+
+.erp-footer-page-current {
+  min-width: 2vw;
+  justify-content: center;
+  border-left: 0.1vw solid var(--brand-primary);
+  border-right: 0.1vw solid var(--brand-primary);
+  background: #ffffff;
+}
+
+.erp-footer-page-total {
+  padding: 0 0.65vw;
+  background: #fafaff;
+}
+
+.erp-footer-records {
+  justify-self: start;
+}
+
+/* ── Search bar ─────────────────────────────────────────────── */
+.erp-search-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  background: #ffffff;
+  border: 0.1vw solid #d2d2d2;
+  border-radius: 0.2vw;
+  padding: 0.9vh 0.8vw;
+  min-width: 18vw;
+}
+
+.erp-search-icon {
+  width: 1.1vw;
+  height: 1.1vw;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.erp-search-input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 0.95vw;
+  color: #46505a;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+}
+.erp-search-input::placeholder { color: #898989; }
+
+/* ============================================================
+   PAGE CONTAINER (inside erp-content)
+   ============================================================ */
+
+.erp-page {
+  /* Tighter top so content sits closer under header; sides/bottom unchanged */
+  padding: var(--erp-page-pad-top) 2.5vw 2.5vh;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vh;
+  height: 100%;
+}
+
+/* Smaller viewport tune:
+   reduce header height and page top padding by 0.1 only */
+@media (max-height: 920px) {
+  :root {
+    --erp-header-h: 3.5vw;
+    --erp-page-pad-top: 1.4vh;
+  }
+
+  .erp-page {
+    padding: var(--erp-page-pad-top) 2.5vw 2.5vh;
+  }
+}
+
+/* Slim scrollbar — see styles/scrollbars.css */
+
+/* ── Breadcrumb (Global) ── */
+.erp-breadcrumb {
+  display: flex;
+  align-items: center;
+  font-size: 1.1vw;
+  font-weight: 400;
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  min-height: 1.5vw;
+}
+
+.erp-breadcrumb--page-title {
+  align-items: center;
+}
+
+.erp-breadcrumb-item {
+  color: #0f7c94;
+  display: inline-flex;
+  align-items: center;
+}
+
+.erp-breadcrumb-link {
+  color: #64748b;
+  font-weight: 400;
+  cursor: pointer;
+  transition: color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.erp-breadcrumb-link:hover {
+  color: var(--brand-primary);
+}
+
+.erp-breadcrumb-link--static {
+  cursor: default;
+}
+
+.erp-breadcrumb-sep {
+  margin: 0 1vw;
+  height: 1.5vw;
+  padding: 0;
+  width: auto;
+  display: block;
+  align-self: center;
+}
+
+/* ── Module Management & Role Access ── */
+.erp-header-minimal {
+  padding-bottom: 1vh;
+  border-bottom: 0.1vw solid #d2d2d2;
+}
+
+/* ── Module Card Grid Layout ── */
+.module-management-page .module-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 2vh 1.8vw;
+  width: 100%;
+}
+
+/* Full-width report windows (no sidebar / header chrome) */
+.erp-standalone-report {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #eef2f7;
+  box-sizing: border-box;
+}
+
+.erp-standalone-report .erp-content {
+  margin: 0;
+  padding: 0;
+  max-width: none;
+}
+
+

@@ -1,0 +1,160 @@
+/* ============================================================
+   SMART ERP — Global themed scrollbars
+   Uses --brand-primary / --brand-primary-rgb from AppBranding.
+   Excludes: .no-scrollbar, .erp-native-scroll-hidden, sidebar nav, journal tbody.
+   ============================================================ */
+
+:root {
+  --erp-scrollbar-size: 8px;
+  --erp-scrollbar-size-thin: 6px;
+  --erp-scrollbar-track: rgba(var(--brand-primary-rgb, 15, 124, 148), 0.1);
+  --erp-scrollbar-thumb: rgba(var(--brand-primary-rgb, 15, 124, 148), 0.35);
+  --erp-scrollbar-thumb-hover: rgba(var(--brand-primary-rgb, 15, 124, 148), 0.55);
+  --erp-scrollbar-thumb-active: var(--brand-primary, #0f7c94);
+  --erp-scrollbar-thumb-border: rgba(255, 255, 255, 0.55);
+}
+
+/* Firefox */
+html,
+body {
+  scrollbar-width: thin;
+  scrollbar-color: var(--erp-scrollbar-thumb) var(--erp-scrollbar-track);
+}
+
+.erp-themed-scroll,
+.sc-modal-body,
+.sc-custom-dropdown,
+.im-table-wrap,
+.erp-content {
+  scrollbar-width: thin;
+  scrollbar-color: var(--erp-scrollbar-thumb) var(--erp-scrollbar-track);
+}
+
+/* WebKit (Chrome, Edge, Safari) */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: var(--erp-scrollbar-size);
+  height: var(--erp-scrollbar-size);
+}
+
+html::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track,
+.erp-themed-scroll::-webkit-scrollbar-track,
+.sc-modal-body::-webkit-scrollbar-track,
+.sc-custom-dropdown::-webkit-scrollbar-track,
+.im-table-wrap::-webkit-scrollbar-track,
+.erp-content::-webkit-scrollbar-track {
+  background: var(--erp-scrollbar-track);
+  border-radius: 999px;
+}
+
+html::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb,
+.erp-themed-scroll::-webkit-scrollbar-thumb,
+.sc-modal-body::-webkit-scrollbar-thumb,
+.sc-custom-dropdown::-webkit-scrollbar-thumb,
+.im-table-wrap::-webkit-scrollbar-thumb,
+.erp-content::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--erp-scrollbar-thumb-hover) 0%,
+    var(--erp-scrollbar-thumb) 100%
+  );
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  min-height: 40px;
+}
+
+html::-webkit-scrollbar-thumb:hover,
+body::-webkit-scrollbar-thumb:hover,
+.erp-themed-scroll::-webkit-scrollbar-thumb:hover,
+.sc-modal-body::-webkit-scrollbar-thumb:hover,
+.sc-custom-dropdown::-webkit-scrollbar-thumb:hover,
+.im-table-wrap::-webkit-scrollbar-thumb:hover,
+.erp-content::-webkit-scrollbar-thumb:hover {
+  background: var(--erp-scrollbar-thumb-hover);
+  border-color: var(--erp-scrollbar-thumb-border);
+}
+
+html::-webkit-scrollbar-thumb:active,
+body::-webkit-scrollbar-thumb:active,
+.erp-themed-scroll::-webkit-scrollbar-thumb:active,
+.sc-modal-body::-webkit-scrollbar-thumb:active,
+.sc-custom-dropdown::-webkit-scrollbar-thumb:active,
+.im-table-wrap::-webkit-scrollbar-thumb:active,
+.erp-content::-webkit-scrollbar-thumb:active {
+  background: var(--erp-scrollbar-thumb-active);
+}
+
+html::-webkit-scrollbar-corner,
+body::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* Catch-all for other overflow containers (dropdowns, tables, panels) */
+*:not(.no-scrollbar):not(.erp-native-scroll-hidden):not(.erp-sidebar-nav):not(.pjTbodyHideNativeBar) {
+  scrollbar-width: thin;
+  scrollbar-color: var(--erp-scrollbar-thumb) var(--erp-scrollbar-track);
+}
+
+*:not(.no-scrollbar):not(.erp-native-scroll-hidden):not(.erp-sidebar-nav):not(.pjTbodyHideNativeBar)::-webkit-scrollbar {
+  width: var(--erp-scrollbar-size);
+  height: var(--erp-scrollbar-size);
+}
+
+*:not(.no-scrollbar):not(.erp-native-scroll-hidden):not(.erp-sidebar-nav):not(.pjTbodyHideNativeBar)::-webkit-scrollbar-track {
+  background: var(--erp-scrollbar-track);
+  border-radius: 999px;
+}
+
+*:not(.no-scrollbar):not(.erp-native-scroll-hidden):not(.erp-sidebar-nav):not(.pjTbodyHideNativeBar)::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    var(--erp-scrollbar-thumb-hover) 0%,
+    var(--erp-scrollbar-thumb) 100%
+  );
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  min-height: 32px;
+}
+
+*:not(.no-scrollbar):not(.erp-native-scroll-hidden):not(.erp-sidebar-nav):not(.pjTbodyHideNativeBar)::-webkit-scrollbar-thumb:hover {
+  background: var(--erp-scrollbar-thumb-hover);
+}
+
+*:not(.no-scrollbar):not(.erp-native-scroll-hidden):not(.erp-sidebar-nav):not(.pjTbodyHideNativeBar)::-webkit-scrollbar-thumb:active {
+  background: var(--erp-scrollbar-thumb-active);
+}
+
+/* Slim variant (main content shell) */
+.slim-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: var(--erp-scrollbar-thumb) var(--erp-scrollbar-track);
+}
+
+.slim-scrollbar::-webkit-scrollbar {
+  width: var(--erp-scrollbar-size-thin);
+  height: var(--erp-scrollbar-size-thin);
+}
+
+.slim-scrollbar::-webkit-scrollbar-track {
+  background: var(--erp-scrollbar-track);
+  border-radius: 999px;
+}
+
+.slim-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--erp-scrollbar-thumb);
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background-clip: padding-box;
+}
+
+.slim-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--erp-scrollbar-thumb-hover);
+}
+
+.slim-scrollbar::-webkit-scrollbar-thumb:active {
+  background: var(--erp-scrollbar-thumb-active);
+}

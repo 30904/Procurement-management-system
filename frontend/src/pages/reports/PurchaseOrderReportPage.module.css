@@ -1,0 +1,389 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #eef2f7;
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.titleBar {
+  background: var(--brand-primary, #197dfa);
+  padding: 0.85rem 1.25rem;
+  box-shadow: 0 2px 8px rgba(15, 61, 145, 0.15);
+}
+
+.title {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.01em;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 1rem 1.25rem;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.filterField {
+  flex: 1 1 12rem;
+  min-width: 10rem;
+  max-width: 18rem;
+}
+
+.filterLabel {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #64748b;
+  margin-bottom: 0.35rem;
+}
+
+.filterActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-left: auto;
+}
+
+.btnPrimary,
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid transparent;
+  font-family: inherit;
+}
+
+.btnPrimary {
+  background: var(--brand-primary, #197dfa);
+  color: #fff;
+  border-color: var(--brand-primary, #197dfa);
+}
+
+.btnPrimary:hover {
+  filter: brightness(1.05);
+}
+
+.btnSecondary {
+  background: #fff;
+  color: #475569;
+  border-color: #cbd5e1;
+}
+
+.btnSecondary:hover {
+  background: #f8fafc;
+}
+
+.body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 1.25rem 1.25rem;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.06);
+  overflow: hidden;
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.searchWrap {
+  position: relative;
+  flex: 1 1 14rem;
+  max-width: 22rem;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0.65rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8;
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 0.5rem 0.65rem 0.5rem 2.15rem;
+  font-size: 0.875rem;
+  font-family: inherit;
+  min-width: 0;
+  background: #fff;
+}
+
+.searchInput:focus {
+  outline: none;
+  border-color: var(--brand-primary, #197dfa);
+  box-shadow: 0 0 0 2px rgba(25, 125, 250, 0.15);
+}
+
+.toolbarRight {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.tableSection {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 12rem;
+}
+
+.exportGroup {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.exportBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.exportBtn:hover:not(:disabled) {
+  background: #f1f5f9;
+}
+
+.exportBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.exportIcon {
+  width: 28px;
+  height: 28px;
+  display: block;
+  flex-shrink: 0;
+}
+
+.exportIconCompact {
+  width: 24px;
+  height: 24px;
+}
+
+.tableFooterBar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.6rem 1rem;
+  border-top: 1px solid #e2e8f0;
+  background: #f8fafc;
+}
+
+.tableWrap {
+  flex: 1;
+  overflow: auto;
+  min-height: 10rem;
+}
+
+.table {
+  margin: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.colPoNo {
+  width: 13%;
+}
+
+.colPoDate {
+  width: 9%;
+}
+
+.colVendor {
+  width: 26%;
+}
+
+.colCurrency {
+  width: 6%;
+}
+
+.colMoney {
+  width: 10%;
+}
+
+.colRef {
+  width: 12%;
+}
+
+.colAction {
+  width: 4.25rem;
+}
+
+.table thead th {
+  background: var(--brand-primary-bg, #e8f2ff) !important;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cellTruncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 0;
+}
+
+.currencyCell {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.num {
+  text-align: right !important;
+  white-space: nowrap;
+}
+
+.actionCol {
+  width: 4.25rem;
+  text-align: center !important;
+  white-space: nowrap;
+}
+
+.emptyCell {
+  text-align: center;
+  padding: 2rem !important;
+  color: #64748b;
+}
+
+.pdfBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  border: none;
+  background: transparent;
+  color: #dc2626;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.pdfBtn:hover {
+  background: #fef2f2;
+}
+
+.totals {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 1.5rem 2rem;
+  padding: 1rem 1.25rem;
+  border-top: 1px solid #e2e8f0;
+  background: #f8fafc;
+}
+
+.totalItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+}
+
+.totalLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #475569;
+}
+
+.totalValueWrap {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.currencyBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.65rem;
+  background: var(--brand-primary, #197dfa);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.totalValue {
+  padding: 0.45rem 0.85rem;
+  min-width: 7rem;
+  text-align: right;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #0f172a;
+}
+
+@media (max-width: 768px) {
+  .filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filterField {
+    max-width: none;
+  }
+
+  .filterActions {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .searchWrap {
+    max-width: none;
+  }
+
+  .totals {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .totalItem {
+    align-items: flex-start;
+  }
+}

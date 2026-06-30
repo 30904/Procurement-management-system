@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.15 28.15" aria-hidden="true">
+  <defs>
+    <style>
+      .bg { fill: #fafcff; stroke: #d2d2ff; stroke-miterlimit: 10; stroke-width: .15px; }
+      .i { fill: var(--brand-primary, #197dfa); }
+    </style>
+  </defs>
+  <rect class="bg" x=".07" y=".07" width="28" height="28" rx="1"/>
+  <g class="i">
+    <path d="M13.15 6.85h1.85c2.05 0 2.95 1.05 2.95 2.15 0 1.15-.95 1.85-2.15 1.85h-1.35c1.35 0 2.15.75 2.15 2.05 0 1.35-1.05 2.35-2.85 2.35h-3.35v-8.4zm1.35 3.55h.55c.75 0 1.15-.35 1.15-.95s-.4-.95-1.15-.95h-.55v1.9zm0 3.85h.75c.95 0 1.45-.45 1.45-1.15s-.5-1.15-1.45-1.15h-.75v2.3z"/>
+    <rect x="7.35" y="17.35" width="13.45" height="1.15" rx=".25"/>
+    <rect x="7.35" y="19.65" width="13.45" height="1.15" rx=".25"/>
+  </g>
+</svg>

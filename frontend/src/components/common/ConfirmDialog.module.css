@@ -1,0 +1,149 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2vh 2vw;
+  background: rgba(15, 23, 42, 0.45);
+  animation: confirmFadeIn 0.18s ease;
+}
+
+@keyframes confirmFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.dialog {
+  width: min(28rem, 92vw);
+  background: #fff;
+  border-radius: 0.35vw;
+  box-shadow: 0 0.6vw 2vw rgba(15, 23, 42, 0.18);
+  overflow: hidden;
+  animation: confirmSlideIn 0.2s ease;
+}
+
+@keyframes confirmSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.bar {
+  height: 0.35vw;
+  background: var(--brand-primary);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1vw;
+  padding: 1.4vh 1.2vw 1vh;
+  border-bottom: 1px solid #e8ecf1;
+}
+
+.title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.close {
+  border: none;
+  background: transparent;
+  padding: 0.25rem;
+  cursor: pointer;
+  opacity: 0.75;
+}
+
+.close:hover:not(:disabled) {
+  opacity: 1;
+}
+
+.close img {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.body {
+  padding: 1.6vh 1.2vw;
+}
+
+.message {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #475569;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6vw;
+  padding: 1vh 1.2vw 1.4vh;
+  border-top: 1px solid #e8ecf1;
+  background: #f8fafc;
+}
+
+.cancelBtn {
+  padding: 0.55rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.25rem;
+  background: #fff;
+  color: #334155;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.cancelBtn:hover:not(:disabled) {
+  background: #f1f5f9;
+}
+
+.confirmBtnDanger,
+.confirmBtnPrimary {
+  padding: 0.55rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-family: inherit;
+  color: #fff;
+}
+
+.confirmBtnDanger {
+  background: #dc2626;
+}
+
+.confirmBtnDanger:hover:not(:disabled) {
+  background: #b91c1c;
+}
+
+.confirmBtnPrimary {
+  background: var(--brand-primary);
+}
+
+.confirmBtnPrimary:hover:not(:disabled) {
+  background: var(--brand-primary-dark);
+}
+
+.confirmBtnDanger:disabled,
+.confirmBtnPrimary:disabled,
+.cancelBtn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}

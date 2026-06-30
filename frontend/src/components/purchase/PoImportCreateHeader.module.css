@@ -1,0 +1,72 @@
+.header {
+  background: linear-gradient(120deg, #134e4a 0%, #0d9488 48%, #14b8a6 100%);
+  border-radius: 14px;
+  padding: 1.1rem 1.25rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.topRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.titleBlock h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.titleBlock p {
+  margin: 0.25rem 0 0;
+  font-size: 0.82rem;
+  opacity: 0.9;
+}
+
+.supplierBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.supplierBtn:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.fieldsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+.fieldMini label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.85;
+  margin-bottom: 0.25rem;
+}
+
+.fieldMini :global(.sc-label) {
+  display: none;
+}
+
+.fieldError {
+  font-size: 0.72rem;
+  color: #fecaca;
+  margin-top: 0.2rem;
+}

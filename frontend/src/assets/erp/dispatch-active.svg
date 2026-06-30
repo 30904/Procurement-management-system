@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.15 28.15" aria-hidden="true">
+  <defs>
+    <style>
+      .bg { fill: #f5f5ff; stroke: #f5f5ff; stroke-miterlimit: 10; stroke-width: .15px; }
+      .i { fill: var(--brand-primary, #197dfa); }
+    </style>
+  </defs>
+  <rect class="bg" x=".07" y=".07" width="28" height="28" rx="1"/>
+  <g class="i">
+    <rect x="5.35" y="10.55" width="12.15" height="6.85" rx=".55"/>
+    <path d="M17.5 10.55h3.85l2.35 3.45v3.4h-6.2z"/>
+    <rect x="6.85" y="12.15" width="4.25" height="3.65" rx=".25" opacity=".45"/>
+    <circle cx="9.15" cy="19.35" r="1.55"/>
+    <circle cx="19.85" cy="19.35" r="1.55"/>
+    <rect x="7.85" y="8.35" width="4.85" height="2.2" rx=".35"/>
+  </g>
+</svg>

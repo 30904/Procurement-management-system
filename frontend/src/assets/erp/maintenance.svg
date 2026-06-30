@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.15 28.15" aria-hidden="true">
+  <defs>
+    <style>
+      .bg { fill: #fafcff; stroke: #d2d2ff; stroke-miterlimit: 10; stroke-width: .15px; }
+      .i { fill: var(--brand-primary, #197dfa); }
+    </style>
+  </defs>
+  <rect class="bg" x=".07" y=".07" width="28" height="28" rx="1"/>
+  <g class="i">
+    <path d="M8.35 7.85l2.85 2.85-1.35 1.35 4.25 4.25 1.35-1.35 2.85 2.85c1.15 1.15 1.15 3 0 4.15s-3 1.15-4.15 0l-7.8-7.8c-1.15-1.15-1.15-3 0-4.15s3-1.15 4.15 0z"/>
+    <rect x="15.85" y="5.85" width="1.55" height="11.85" rx=".35" transform="rotate(12 16.6 11.75)"/>
+    <rect x="15.2" y="5.35" width="2.85" height="1.35" rx=".25" transform="rotate(12 16.6 6.05)"/>
+    <rect x="15.05" y="16.15" width="2.55" height="1.15" rx=".25" transform="rotate(12 16.35 16.75)"/>
+  </g>
+</svg>

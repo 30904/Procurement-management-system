@@ -1,0 +1,19 @@
+/* ============================================================
+   SMART ERP — Square corners (no border-radius)
+   Loaded last so it overrides module CSS and theme tokens.
+   ============================================================ */
+
+:root {
+  --erp-radius-sm: 0;
+  --erp-radius-md: 0;
+  --radius-lg: 0;
+  --radius-md: 0;
+  --login-card-radius: 0;
+  --erp-sidebar-item-pill-radius: 0;
+}
+
+body *:not(svg):not(svg *):not(canvas),
+body *::before,
+body *::after {
+  border-radius: 0 !important;
+}

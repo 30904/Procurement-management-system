@@ -1,0 +1,1352 @@
+/* ============================================================
+   SMART ERP — subcomponents.css
+   Reusable form field styles: label, input, select, status dot.
+   All units in vw/vh. Blue accent: var(--brand-primary).
+   ============================================================ */
+
+/* ── Field wrapper ───────────────────────────────────────────── */
+.sc-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95vh;
+  min-width: 0;
+}
+
+.sc-field--no-label {
+  gap: 0;
+}
+
+/* ── Label ───────────────────────────────────────────────────── */
+.sc-label {
+  font-size: 1vw;
+  font-weight: 500;
+  color: #334155;
+  font-family: 'Inter', sans-serif;
+  white-space: nowrap;
+}
+
+.sc-label-required::after {
+  content: " *";
+  color: var(--brand-required, #dc2626);
+}
+
+/* ── Base input / select shared look ────────────────────────── */
+.sc-input,
+.sc-select {
+  height: 4.3vh;
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 0 0.7vw;
+  font-size: 1vw;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  color: #46505a;
+  background: #ffffff;
+  outline: none;
+  transition: border-color 0.15s ease, background 0.15s ease;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  line-height: 4.3vh;
+}
+
+.sc-input::placeholder {
+  font-size: 1vw;
+  color: #8a939e;
+}
+
+.sc-input:focus,
+.sc-select:focus {
+  border-color: var(--brand-primary);
+  background: #ffffff;
+  box-shadow: 0 0 0 0.12vw var(--brand-primary-ring);
+}
+
+.sc-input:disabled,
+.sc-select:disabled {
+  background: #f8fafc;
+  color: #46505a;
+  cursor: not-allowed;
+}
+
+/* Icon button beside sc-input — exact same height as .sc-input (4.3vh) */
+.sc-field-adjunct-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-sizing: border-box;
+  width: 4.3vh;
+  height: 4.3vh;
+  max-height: 4.3vh;
+  min-height: 0;
+  min-width: 0;
+  padding: 0;
+  border: 0.08vw solid var(--brand-primary);
+  border-radius: 0.2vw;
+  background: #fff;
+  color: var(--brand-primary);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.sc-field-adjunct-btn:hover:not(:disabled) {
+  background: var(--brand-primary-light, #eef6ff);
+}
+
+.sc-field-adjunct-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ── Select wrapper ──────────────────────────────────────────── */
+.sc-select-wrap {
+  position: relative;
+  width: 100%;
+}
+
+/* ── Custom select trigger ───────────────────────────────────── */
+.sc-custom-select {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 4.3vh;
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 0 0.7vw;
+  font-size: 1vw;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  color: #46505a;
+  background: #ffffff;
+  cursor: pointer;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, background 0.15s ease;
+  user-select: none;
+}
+
+.sc-custom-select:focus,
+.sc-custom-select--open {
+  border-color: var(--brand-primary);
+  background: #ffffff;
+  box-shadow: 0 0 0 0.12vw var(--brand-primary-ring);
+}
+
+.sc-custom-select.sc-custom-select--locked,
+.sc-custom-select.sc-custom-select--locked:focus {
+  background: #f8fafc;
+  color: #46505a;
+  border-color: #d2d2d2;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.sc-custom-select.sc-custom-select--disabled,
+.sc-custom-select.sc-custom-select--disabled:focus {
+  background: #f8fafc;
+  color: #46505a;
+  border-color: #d2d2d2;
+  box-shadow: none;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.sc-custom-select__value {
+  flex: 1;
+  min-width: 0;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.sc-custom-select__placeholder {
+  color: #8a939e;
+}
+
+.sc-custom-select__arrow {
+  width: 0.75vw;
+  height: auto;
+  flex-shrink: 0;
+  margin-left: 0.4vw;
+  margin-right: 0.2vw;
+  transition: transform 0.18s ease;
+}
+
+.sc-custom-select__arrow--open {
+  transform: rotate(180deg);
+}
+
+/* ── Custom dropdown list (portal, fixed positioning) ────────── */
+.sc-custom-dropdown {
+  position: fixed;
+  background: #ffffff;
+  border-radius: 0.2vw;
+  border: 0.07vw solid #d4d8e2;
+  box-shadow:
+    0 0.5vh 1.5vw rgba(15, 23, 42, 0.12),
+    0 0.1vh 0.3vw rgba(15, 23, 42, 0.06);
+  z-index: 99999;
+  list-style: none;
+  margin: 0;
+  padding: 0.5vh 0.3vw;
+  max-height: 24vh;
+  overflow-y: auto;
+}
+
+.sc-custom-dropdown__item {
+  padding: 0.75vh 0.7vw;
+  font-size: 1vw;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  color: #46505a;
+  cursor: pointer;
+  border-radius: 0.2vw;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+
+.sc-custom-dropdown__item:hover {
+  background: #eef4ff;
+  color: var(--brand-primary);
+}
+
+.sc-custom-dropdown__item--selected {
+  background: #ddeaff;
+  color: var(--brand-primary);
+  font-weight: 500;
+}
+
+.sc-custom-dropdown__item--selected:hover {
+  background: #cfe0ff;
+}
+
+.sc-custom-dropdown__item--highlight {
+  background: #eef4ff;
+  color: var(--brand-primary);
+}
+
+.sc-custom-dropdown__item--highlight.sc-custom-dropdown__item--selected {
+  background: #cfe0ff;
+}
+
+.sc-custom-dropdown__item--disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ── Status dropdown item (with icon) ────────────────────────── */
+.sc-custom-dropdown__item--status {
+  display: flex;
+  align-items: center;
+  gap: 0.7vw;
+}
+
+/* ── Status trigger layout ───────────────────────────────────── */
+.sc-status-trigger {
+  gap: 0.7vw;
+}
+
+/* ── Locked input ────────────────────────────────────────────── */
+.sc-input.sc-input--locked,
+.sc-input.sc-input--locked:focus {
+  background: #f8fafc;
+  color: #46505a;
+  border-color: #d2d2d2;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* Locked fields: teal focus ring on click/focus */
+.sc-input.sc-input--locked:focus,
+.sc-input.sc-input--locked:active,
+.sc-custom-select.sc-custom-select--locked:focus,
+.sc-custom-select.sc-custom-select--locked:active {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 0.12vw var(--brand-primary-ring);
+}
+
+/* ── Amount field (right-aligned number) ────────────────────── */
+.sc-input-suffix-wrap {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+
+.sc-input-suffix-wrap .sc-input--with-suffix {
+  border-radius: 0.25vw 0 0 0.25vw;
+  border-right: none;
+  flex: 1;
+  min-width: 0;
+}
+
+.sc-input-suffix {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.75vw;
+  min-width: 2.8vw;
+  border: 0.06vw solid #cbd5e1;
+  border-left: none;
+  border-radius: 0 0.25vw 0.25vw 0;
+  background: #f1f5f9;
+  color: #475569;
+  font-size: 0.88vw;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+button.sc-input-suffix.sc-labour-clock-btn {
+  cursor: pointer;
+  padding: 0 0.55rem;
+  min-width: 2.25rem;
+  background: #fff;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+button.sc-input-suffix.sc-labour-clock-btn:hover:not(:disabled) {
+  background: #f0fdfa;
+  border-color: var(--brand-primary, #0f7c94);
+}
+
+button.sc-input-suffix.sc-labour-clock-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.sc-input--amount {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Date field ──────────────────────────────────────────────── */
+.sc-input--date {
+  color: #46505a;
+}
+.sc-input--date::-webkit-calendar-picker-indicator {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.sc-date-trigger {
+  height: 4.3vh;
+  width: 100%;
+  border: 0.08vw solid #cfd7e6;
+  border-radius: 0.2vw;
+  padding: 0 0.7vw;
+  font-size: 1vw;
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
+  color: #46505a;
+  background: linear-gradient(180deg, #ffffff 0%, #fcfdff 100%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease, transform 0.12s ease;
+}
+
+.sc-date-trigger__input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1vw;
+  font-weight: 400;
+  font-family: "Inter", sans-serif;
+  color: #46505a;
+  height: 100%;
+}
+
+.sc-date-trigger__input::placeholder {
+  color: #8a939e;
+}
+
+.sc-date-trigger__icon-btn {
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin-left: 0.55vw;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.sc-date-trigger__icon-btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.sc-date-trigger:focus,
+.sc-date-trigger--open {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 0.12vw var(--brand-primary-ring);
+}
+
+.sc-date-trigger:hover:not(.sc-date-trigger--disabled) {
+  border-color: #b9c9e6;
+  background: #ffffff;
+}
+
+.sc-date-trigger--disabled,
+.sc-date-trigger--disabled:focus {
+  background: #f8fafc;
+  color: #46505a;
+  border-color: #d2d2d2;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.sc-date-trigger__text {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.sc-date-trigger__placeholder {
+  color: #8a939e;
+}
+
+.sc-date-trigger__icon {
+  width: 0.95vw;
+  height: auto;
+  flex-shrink: 0;
+  margin-left: 0.6vw;
+  opacity: 0.95;
+}
+
+.sc-date-popup {
+  position: fixed;
+  z-index: 99999;
+  background: #ffffff;
+  border: 0.07vw solid #d9e2f2;
+  border-top: 0.12vw solid var(--brand-primary);
+  border-radius: 0.25vw;
+  box-shadow:
+    0 0.7vh 1.6vw rgba(25, 50, 90, 0.14),
+    0 0.1vh 0.3vw rgba(15, 23, 42, 0.06);
+  padding: 1.25vh 0.9vw 1.15vh;
+  backdrop-filter: blur(2px);
+}
+
+.sc-date-popup__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.9vh;
+  border-bottom: 0.05vw solid #e8eef9;
+  padding-bottom: 0.75vh;
+}
+
+.sc-date-popup__title {
+  font-size: 0.98vw;
+  color: #2f4f7f;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.sc-date-popup__nav {
+  border: 0.05vw solid #cfe0ff;
+  background: #f5f9ff;
+  color: var(--brand-primary);
+  font-size: 1.05vw;
+  line-height: 1;
+  cursor: pointer;
+  width: 1.75vw;
+  height: 1.75vw;
+  border-radius: 0.18vw;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sc-date-popup__nav:hover {
+  background: #eaf2ff;
+  border-color: #aac7ff;
+}
+
+.sc-date-popup__week {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.35vw;
+  margin-bottom: 0.55vh;
+}
+
+.sc-date-popup__week-label {
+  text-align: center;
+  font-size: 0.73vw;
+  color: #8090a8;
+  font-weight: 600;
+}
+
+.sc-date-popup__grid {
+  display: grid;
+  gap: 0.35vw;
+}
+
+.sc-date-popup__grid--days {
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.sc-date-popup__grid--months,
+.sc-date-popup__grid--years {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.sc-date-popup__blank {
+  min-height: 3.1vh;
+}
+
+.sc-date-popup__cell {
+  border: 0.05vw solid transparent;
+  background: #ffffff;
+  border-radius: 0.22vw;
+  min-height: 3.15vh;
+  font-size: 0.84vw;
+  color: #46505a;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease, transform 0.12s ease;
+}
+
+.sc-date-popup__cell:hover {
+  background: #f3f8ff;
+  border-color: #d8e6ff;
+  transform: translateY(-0.5px);
+}
+
+.sc-date-popup__cell:disabled,
+.sc-date-popup__cell:disabled:hover {
+  background: #f8fafc;
+  border-color: #e4e8f2;
+  color: #8a939e;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.sc-date-popup__cell.is-selected {
+  background: linear-gradient(180deg, #2b86ff 0%, var(--brand-primary) 100%);
+  border-color: var(--brand-primary);
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: 0 0.2vh 0.45vw var(--brand-primary-outline);
+}
+
+.sc-date-popup__cell.is-today:not(.is-selected) {
+  border-color: #93bcff;
+  color: var(--brand-primary);
+  background: #f7fbff;
+}
+
+.sc-date-popup__cell--month,
+.sc-date-popup__cell--year {
+  min-height: 3.9vh;
+}
+
+/* ── Time picker (matches DateField trigger) ───────────────── */
+.sc-time-trigger__icon {
+  flex-shrink: 0;
+  margin-left: 0.6vw;
+}
+
+.sc-time-popup {
+  position: fixed;
+  z-index: 99999;
+  background: #ffffff;
+  border: 0.07vw solid #d9e2f2;
+  border-top: 0.12vw solid var(--brand-primary);
+  box-shadow:
+    0 0.7vh 1.6vw rgba(25, 50, 90, 0.14),
+    0 0.1vh 0.3vw rgba(15, 23, 42, 0.06);
+  padding: 0.5rem;
+}
+
+.sc-time-popup__columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.35rem;
+}
+
+.sc-time-popup__col-title {
+  display: block;
+  text-align: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--brand-primary, #0f7c94);
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.sc-time-popup__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 11rem;
+  overflow-y: auto;
+  border: 1px solid #e2e8f0;
+}
+
+.sc-time-popup__item {
+  display: block;
+  width: 100%;
+  padding: 0.35rem 0.5rem;
+  border: none;
+  background: #fff;
+  color: #334155;
+  font-size: 0.875rem;
+  font-family: "Inter", sans-serif;
+  text-align: center;
+  cursor: pointer;
+}
+
+.sc-time-popup__item:hover {
+  background: #f1f5f9;
+}
+
+.sc-time-popup__item--selected {
+  background: var(--brand-primary, #0f7c94) !important;
+  color: #fff !important;
+  font-weight: 600;
+}
+
+/* ── Multi-select ────────────────────────────────────────────── */
+.sc-multiselect {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1vw;
+  font-family: 'Inter', sans-serif;
+  color: #46505a;
+  background: #ffffff;
+  outline: none;
+  transition: border-color 0.15s ease;
+  box-sizing: border-box;
+  min-height: 4.3vh;
+  padding: 0.3vh 0.7vw;
+}
+.sc-multiselect:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 0.18vw var(--brand-primary-ring);
+}
+
+/* ── Status field ────────────────────────────────────────────── */
+.sc-status-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  height: 4.3vh;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 0 0.7vw;
+  background: #ffffff;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.sc-status-wrap:focus-within {
+  border-color: var(--brand-primary);
+  background: #ffffff;
+  box-shadow: 0 0 0 0.12vw var(--brand-primary-ring);
+}
+
+
+.sc-status-icon {
+  width: 1vw;
+  height: auto;
+  flex-shrink: 0;
+}
+
+/* Status dot (mirrors table dot visual style) */
+.sc-status-dot {
+  width: 0.6vw;
+  height: 0.6vw;
+  border-radius: 50%;
+  background: #009696;
+  flex-shrink: 0;
+}
+
+.sc-status-dot--inactive {
+  background: #ff3b6b;
+}
+
+.sc-status-select {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1vw;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+  color: #46505a;
+  cursor: pointer;
+  flex: 1;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.sc-status-arrow {
+  width: 0.75vw;
+  height: auto;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+/* ── InputDD (input with dropdown suggestion) ───────────────── */
+.sc-inputdd-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.sc-inputdd-arrow {
+  position: absolute;
+  right: 0.6vw;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.7vw;
+  height: auto;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* ── Modal inline search (matches erp-search-wrap) ───────────── */
+.sc-modal-search {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+  background: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 0.9vh 0.8vw;
+  min-width: 14vw;
+  max-width: 26vw;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sc-modal-search:focus-within {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 0.12vw var(--brand-primary-ring);
+}
+
+.sc-modal-search__icon {
+  width: 1.1vw;
+  min-width: 16px;
+  height: 1.1vw;
+  min-height: 16px;
+  flex-shrink: 0;
+  display: block;
+}
+
+.sc-modal-search__input {
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1vw;
+  color: #46505a;
+  width: 100%;
+  min-width: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.sc-modal-search__input::placeholder {
+  color: #8a939e;
+}
+
+/* ── Modal overlay ───────────────────────────────────────────── */
+.sc-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* ── Modal box ───────────────────────────────────────────────── */
+.sc-modal {
+  background: #ffffff;
+  border-radius: 0.2vw;
+  width: 68vw;
+  max-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 0.5vw 2vw rgba(15, 23, 42, 0.2);
+}
+
+/* ── Modal top accent bar ────────────────────────────────────── */
+.sc-modal-bar {
+  display: none;
+  flex-shrink: 0;
+}
+
+/* ── Modal header ────────────────────────────────────────────── */
+.sc-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.8vh 1.8vw 1.5vh;
+  border-bottom: none;
+  background: var(--brand-primary, #0f7c94);
+  flex-shrink: 0;
+}
+
+.sc-modal-title {
+  font-size: 1.2vw;
+  font-weight: 600;
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+}
+
+.sc-modal-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6vw;
+}
+
+.sc-modal-title-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5vw;
+}
+
+.sc-modal-close {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.15s ease;
+}
+.sc-modal-close:hover { opacity: 1; }
+.sc-modal-close img {
+  height: 0.9vw;
+  width: auto;
+}
+
+.sc-modal-edit-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  opacity: 0.85;
+  transition: opacity 0.15s ease;
+  margin-left: 0.5vw;
+  margin-top: 0.3vh;
+}
+.sc-modal-edit-btn:hover { opacity: 1; }
+.sc-modal-edit-btn img {
+  height: 1vw;
+  width: auto;
+}
+
+/* ── Modal body ──────────────────────────────────────────────── */
+.sc-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 3vh 1.8vw 2vh;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5vh;
+}
+
+/* ── Field grid (4 columns) ──────────────────────────────────── */
+.sc-field-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2vw 2.6vw;
+}
+
+.sc-field-grid .sc-field:nth-child(n+5) {
+  margin-bottom: 1.2vh;
+}
+
+/* 2-col variant for smaller modals */
+.sc-field-grid--2col {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* 1-col stack for narrow modals (plant details, etc.) */
+.sc-field-grid--1col {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.6vh 0;
+}
+
+.sc-field-grid--1col .sc-field {
+  min-width: 0;
+  width: 100%;
+}
+
+.sc-field-grid--1col .sc-label {
+  white-space: normal;
+  line-height: 1.35;
+}
+
+.sc-field-grid--1col .sc-input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* full-width field spanning all columns */
+.sc-field--full {
+  grid-column: 1 / -1;
+}
+
+/* ── Modal footer ────────────────────────────────────────────── */
+.sc-modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.8vw;
+  padding: 0.85rem 1.25rem 1rem;
+  border-top: 0.05vw solid #b8bcc8;
+  flex-shrink: 0;
+  background: #fafbfd;
+}
+
+.sc-modal-footer img,
+.sc-modal-footer svg,
+.sc-modal-footer .erp-action-svg-btn {
+  height: 2.1vw;
+  width: auto;
+  cursor: pointer;
+  display: block;
+  flex-shrink: 0;
+}
+
+.sc-modal-footer button.sc-modal-btn-primary {
+  width: auto;
+  min-width: 7.5rem;
+  padding: 0 1rem;
+  flex: 0 0 auto;
+  justify-content: center;
+  cursor: pointer;
+  background: var(--brand-primary);
+  color: #ffffff;
+  border-color: var(--brand-primary);
+  font-weight: 600;
+}
+
+.sc-modal-footer button.sc-modal-btn-primary:hover:not(:disabled) {
+  background: var(--brand-primary-dark, #0c6a7e);
+  border-color: var(--brand-primary-dark, #0c6a7e);
+}
+
+.sc-modal-footer button.sc-modal-btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.sc-modal-footer--with-hint {
+  justify-content: space-between;
+}
+
+.sc-modal-footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8vw;
+  flex-shrink: 0;
+}
+
+/* Compact text buttons in modal footers (not full-width .sc-input fields) */
+.sc-modal-btn-secondary,
+.sc-modal-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  height: 2.25rem;
+  min-height: 36px;
+  padding: 0 1.1rem;
+  border-radius: 8px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  font-family: "Inter", sans-serif;
+  line-height: 1;
+  cursor: pointer;
+  width: auto;
+  flex: 0 0 auto;
+  white-space: nowrap;
+  transition: background 0.15s ease, border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.sc-modal-btn-secondary {
+  background: #ffffff;
+  border: 1px solid var(--brand-primary, #0f766e);
+  color: var(--brand-primary, #0f766e);
+}
+
+.sc-modal-btn-secondary:hover:not(:disabled) {
+  background: var(--brand-primary-light, #ecfdf5);
+}
+
+.sc-modal-btn-primary {
+  background: var(--brand-primary, #0f766e);
+  border: 1px solid var(--brand-primary, #0f766e);
+  color: #ffffff;
+}
+
+.sc-modal-btn-primary:hover:not(:disabled) {
+  background: var(--brand-primary-dark, #0c6a7e);
+  border-color: var(--brand-primary-dark, #0c6a7e);
+}
+
+.sc-modal-btn-primary:disabled,
+.sc-modal-btn-secondary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* Legacy: prevent .sc-input footer buttons from stretching full width */
+.sc-modal-footer button.sc-input {
+  width: auto;
+  flex: 0 0 auto;
+  min-width: 6.25rem;
+  height: 2.25rem;
+  min-height: 36px;
+  padding: 0 1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1;
+}
+
+.sc-modal-dev-hint {
+  font-family: "Inter", sans-serif;
+  font-size: 0.72vw;
+  color: #6b7280;
+  user-select: none;
+}
+
+/* ── Payment ref field + MOA button ── */
+.payment-ref-field-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55vh;
+  min-width: 0;
+}
+
+.payment-ref-label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5vw;
+}
+
+.payment-ref-label-row .sc-label {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+}
+
+.payment-moa-btn {
+  flex-shrink: 0;
+  padding: 0.25vh 0.65vw;
+  font-family: "Inter", sans-serif;
+  font-size: 0.72vw;
+  font-weight: 500;
+  color: #ffffff;
+  background: var(--brand-primary);
+  border: none;
+  border-radius: 0.15vw;
+  cursor: pointer;
+  line-height: 1.2;
+}
+
+.payment-moa-btn:hover:not(:disabled),
+.payment-moa-btn:active:not(:disabled),
+.payment-moa-btn:focus-visible:not(:disabled) {
+  color: #ffffff;
+  background: var(--brand-primary-dark);
+  outline: none;
+}
+
+.payment-moa-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+/* ── Method of Adjustment (compact modal) ── */
+.sc-modal--mode-adjustment {
+  width: 28vw;
+  min-width: 280px;
+  max-width: 400px;
+}
+
+.sc-modal-body--mode-adjustment {
+  padding: 4vh 1.6vw;
+  gap: 0;
+}
+
+.sc-modal--mode-adjustment .sc-modal-footer {
+  padding-top: 2.5vh;
+  padding-bottom: 3vh;
+}
+
+.sc-modal-footer--center {
+  justify-content: center;
+}
+
+/* ── Supplier payment modal (invoice allocation table) ── */
+.sc-modal--supplier-payment {
+  width: 65vw;
+  max-width: 65vw;
+}
+
+.sc-modal-header--supplier-payment {
+  border-bottom: none;
+}
+
+.sc-modal-body--supplier-payment {
+  padding: 0;
+  gap: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.sp-payment-modal-divider {
+  border: none;
+  border-top: 0.05vw solid #b8bcc8;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+/* Equal inset around table; typography/rows use global .im-table rules */
+.sp-payment-table-wrap {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 2vw;
+  box-sizing: border-box;
+}
+
+.sp-payment-table-wrap .im-table {
+  table-layout: fixed;
+}
+
+.sp-payment-table-wrap .im-table thead th.sp-payment-table__select-col,
+.sp-payment-table-wrap .im-table tbody td.sp-payment-table__select-col {
+  width: 6%;
+  min-width: 3.2vw;
+  text-align: center;
+  padding-left: 0.8vw;
+  padding-right: 0.8vw;
+}
+
+.sp-payment-table-wrap .im-table thead th.sp-payment-table__num-col,
+.sp-payment-table-wrap .im-table tbody td.sp-payment-table__num-col {
+  text-align: right;
+}
+
+.sp-payment-table-wrap .im-table tbody td.amountCell {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.sp-payment-table-wrap .im-table tbody td.amountCell .sc-input.amountInput {
+  height: 100%;
+  min-height: 0;
+  max-height: 100%;
+  font-size: 0.95vw !important;
+}
+
+.sp-payment-table-wrap .im-table tfoot .sp-payment-total-row td {
+  background-color: var(--brand-primary-bg);
+  color: #46505a;
+  font-weight: 450;
+  font-size: 0.95vw;
+  border: 0.1vw solid #d2d2d2;
+  padding: 1.1vh 1vw;
+  vertical-align: middle;
+}
+
+.sp-payment-table-wrap .im-table tfoot .sp-payment-total-row:hover td {
+  background-color: var(--brand-primary-bg);
+}
+
+.sp-payment-table-wrap .im-table tfoot .sp-payment-total-row__label {
+  text-align: left;
+  color: #0046d2;
+}
+
+.sp-payment-table-wrap .im-table tfoot .sp-payment-total-row__value {
+  text-align: center;
+  font-weight: 500;
+}
+
+/* ── Module Management & Role Access ── */
+.sc-table-minimal {
+  border-spacing: 0;
+  width: 100%;
+}
+
+/* ── Module Card Checkbox ── */
+.module-management-page .module-card__checkbox {
+  position: absolute;
+  top: 0.6vw;
+  right: 0.6vw;
+  width: 1vw;
+  height: 1vw;
+  border: 0.08vw solid var(--brand-primary);
+  border-radius: 0.15vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+
+.module-management-page .module-card__checkbox--checked {
+  background: var(--brand-primary);
+  border-color: var(--brand-primary);
+}
+
+
+
+.module-card__checkbox-tick {
+  width: 0.7vw;
+  height: 0.5vw;
+  stroke: #ffffff;
+  stroke-width: 3;
+}
+
+/* ── Custom Sub-Module Modal Checkbox ── */
+.submodule-modal-content .submodule-checkbox {
+  width: 1.1vw;
+  height: 1.1vw;
+  min-width: 12px;
+  min-height: 12px;
+  border: 0.1vw solid #4682c8;
+  border-radius: 0.1vw;
+  background-color: #ffffff;
+  transition: all 0.2s;
+  display: inline-block;
+  flex-shrink: 0;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.submodule-modal-content .submodule-checkbox--checked {
+  background-color: #4682c8;
+  box-shadow: #ffffff 0px 0px 0px 0.2vw inset;
+}
+
+.submodule-modal-content .submodule-checkbox--indeterminate {
+  background-color: #ffffff;
+  border-color: #4682c8;
+  position: relative;
+}
+
+.submodule-modal-content .submodule-checkbox--indeterminate::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0.5vw;
+  height: 0.5vw;
+  background-color: #4682c8;
+  border-radius: 0.1vw;
+}
+
+/* ── Sub-module Nested Groups ── */
+.submodule-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vh;
+}
+
+.submodule-expand-arrow {
+  display: inline-block;
+  font-size: 0.7vw;
+  margin-left: 0.5vw;
+  transition: transform 0.2s ease;
+  color: #4682c8;
+}
+
+.submodule-expand-arrow.expanded {
+  transform: rotate(180deg);
+}
+
+.submodule-children-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vh;
+  margin-left: 2.2vw;
+  padding-left: 0.8vw;
+  border-left: 0.08vw solid #e2e8f0;
+  margin-bottom: 1.5vh;
+}
+
+.submodule-row-card--child {
+  background: #f8fafc;
+  border-radius: 0.2vw;
+  padding: 1vh 1.2vw !important;
+  margin-bottom: 0.5vh !important;
+}
+
+
+
+
+
+/* ── Custom Toggle Switch ────────────────────────────────────── */
+.sc-toggle {
+  position: relative;
+  display: inline-block;
+  width: 2.2vw;
+  height: 1.1vw;
+  flex-shrink: 0;
+}
+
+.sc-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.sc-toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #ccc;
+  transition: .3s;
+  border-radius: 1.1vw;
+}
+
+.sc-toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 0.8vw;
+  width: 0.8vw;
+  left: 0.15vw;
+  bottom: 0.15vw;
+  background-color: white;
+  transition: .3s;
+  border-radius: 50%;
+}
+
+input:checked + .sc-toggle-slider {
+  background-color: var(--brand-primary);
+}
+
+input:checked + .sc-toggle-slider:before {
+  transform: translateX(1.1vw);
+}

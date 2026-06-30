@@ -1,0 +1,86 @@
+.header {
+  background: linear-gradient(120deg, #1e3a8a 0%, #2563eb 48%, #3b82f6 100%);
+  border-radius: 14px;
+  padding: 1.1rem 1.25rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.topRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.titleBlock h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.titleBlock p {
+  margin: 0.25rem 0 0;
+  font-size: 0.82rem;
+  opacity: 0.88;
+}
+
+.supplierBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+}
+
+.supplierBtn:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.fieldsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+.fieldMini label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+  margin-bottom: 0.25rem;
+}
+
+.fieldMini :global(.sc-field) {
+  margin: 0;
+}
+
+.fieldMini :global(.sc-label) {
+  display: none;
+}
+
+.fieldMini :global(.sc-input),
+.fieldMini :global(input) {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-color: transparent !important;
+  color: #0f172a !important;
+  font-weight: 600;
+  border-radius: 8px !important;
+}
+
+.fieldError {
+  font-size: 0.72rem;
+  color: #fecaca;
+  margin-top: 0.2rem;
+}

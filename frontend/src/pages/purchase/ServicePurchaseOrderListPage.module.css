@@ -1,0 +1,45 @@
+.centerAction {
+  display: flex;
+  justify-content: center;
+  padding: 0.85rem 1rem 0.25rem;
+  background: #fff;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.btnCreateSpo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1.25rem;
+  border: none;
+  border-radius: 6px;
+  background: var(--brand-primary, #197dfa);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: 0 2px 8px rgba(25, 125, 250, 0.25);
+}
+
+.btnCreateSpo:hover {
+  background: var(--brand-primary-dark, #1565c0);
+}
+
+.excelBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.excelBtn:hover {
+  border-color: var(--brand-primary, #197dfa);
+  background: var(--brand-primary-light, #eef6ff);
+}

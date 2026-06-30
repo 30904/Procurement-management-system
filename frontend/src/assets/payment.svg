@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.15 28.15">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fafcff;
+        stroke: #d2d2ff;
+        stroke-width: .15px;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: .7px;
+      }
+
+      .cls-3, .cls-2 {
+        fill: none;
+        stroke: var(--brand-primary, #197dfa);
+      }
+
+      .cls-4 {
+        fill: var(--brand-primary, #197dfa);
+      }
+
+      .cls-2 {
+        stroke-width: .8px;
+      }
+
+      .cls-5 {
+        fill: #b8d1e6;
+      }
+    </style>
+  </defs>
+  <g id="Menu">
+    <g>
+      <rect class="cls-1" x=".07" y=".07" width="28" height="28" rx="1" ry="1"/>
+      <g>
+        <g>
+          <path class="cls-2" d="M24.74,20.51c0,.2-.07.39-.21.54-.14.15-.32.22-.5.22H4.19c-.18,0-.36-.07-.5-.22-.14-.15-.21-.35-.21-.54V6.73c0-.2.07-.39.21-.54.14-.15.32-.22.5-.22h19.84c.18,0,.36.08.5.22.14.15.21.34.21.54v13.78Z"/>
+          <path class="cls-5" d="M16.53,21.35s-.01.08-.04.11c-.03.03-.06.04-.1.04h-4.56s-.07-.01-.1-.04c-.03-.03-.04-.07-.04-.11v-.08h4.84v.08h0Z"/>
+          <line class="cls-3" x1="3.49" y1="22.97" x2="24.74" y2="22.97"/>
+        </g>
+        <g>
+          <path class="cls-4" d="M12.77,12.26l-.25.66h-.98c-.07.53-.36.96-.85,1.3s-1.22.51-2.18.51h-.32l3.34,3.17v.06h-1.09l-3.55-3.37-.02-.48h1.56c.62,0,1.13-.1,1.51-.3s.61-.49.68-.88h-3.81l.24-.66h3.57c-.09-.36-.31-.64-.67-.85s-.83-.31-1.42-.31h-1.71l.24-.65h5.76l-.24.66h-1.71c.37.3.6.68.69,1.15h1.24Z"/>
+          <polygon class="cls-4" points="19.73 13.11 15.23 17.61 14.62 17 19.12 12.5 20 11.65 15.8 11.65 15.8 10.81 21.42 10.81 21.42 16.42 20.57 16.42 20.58 12.22 19.73 13.11"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

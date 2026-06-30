@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.15 40.07">
+  <defs>
+    <style>
+      .cls-3 {
+        fill: var(--brand-primary, #0f7c94);
+      }
+
+      .cls-4 {
+        fill: #f5f5ff;
+        stroke: #5a6ee6;
+        stroke-miterlimit: 10;
+        stroke-width: .15px;
+      }
+    </style>
+  </defs>
+  <g id="Menu">
+    <g>
+      <rect class="cls-4" x=".08" y=".08" width="44" height="39.92"/>
+      <g class="cls-3">
+        <circle cx="15.5" cy="14.5" r="6.2"/>
+        <circle cx="15.5" cy="14.5" r="2.4" fill="#ffffff"/>
+        <rect x="20.2" y="12.8" width="15.5" height="3.4" rx="0.5"/>
+        <rect x="28.5" y="16.2" width="3.2" height="4.2" rx="0.35"/>
+        <rect x="32.5" y="16.2" width="3.2" height="6.8" rx="0.35"/>
+      </g>
+    </g>
+  </g>
+</svg>

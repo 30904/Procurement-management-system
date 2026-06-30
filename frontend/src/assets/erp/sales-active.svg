@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.15 28.15" aria-hidden="true">
+  <defs>
+    <style>
+      .bg { fill: #f5f5ff; stroke: #f5f5ff; stroke-miterlimit: 10; stroke-width: .15px; }
+      .i { fill: var(--brand-primary, #197dfa); }
+    </style>
+  </defs>
+  <rect class="bg" x=".07" y=".07" width="28" height="28" rx="1"/>
+  <g class="i">
+    <rect x="6.55" y="14.15" width="3.65" height="7.35" rx=".35"/>
+    <rect x="12.25" y="10.35" width="3.65" height="11.15" rx=".35"/>
+    <rect x="18" y="6.55" width="3.65" height="14.95" rx=".35"/>
+    <rect x="5.85" y="21.85" width="16.45" height=".95" rx=".2"/>
+  </g>
+</svg>

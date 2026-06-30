@@ -1,0 +1,82 @@
+/* ============================================================
+   Enterprise button semantics
+   - Primary CTAs: teal (--brand-primary)
+   - Reset / cancel: secondary outline (not red)
+   - Danger delete: red (--brand-required) only
+   ============================================================ */
+
+:root {
+  --brand-required: #dc2626;
+  --brand-required-dark: #b91c1c;
+}
+
+/* Reset — secondary (was incorrectly using brand-accent / red) */
+.btnReset,
+button.btnReset,
+[class*="btnReset"] {
+  background: #ffffff !important;
+  border: 1px solid #cbd5e1 !important;
+  color: #334155 !important;
+}
+
+.btnReset:hover:not(:disabled),
+button.btnReset:hover:not(:disabled) {
+  background: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+  color: #334155 !important;
+}
+
+/* Primary add / save actions that used accent */
+.addLocationBtn,
+.payment-moa-btn,
+[class*="addLocationBtn"],
+[class*="addBtn"]:not([class*="danger"]) {
+  background: var(--brand-primary) !important;
+  border-color: var(--brand-primary) !important;
+  color: #ffffff !important;
+}
+
+.addLocationBtn:hover,
+.payment-moa-btn:hover:not(:disabled),
+[class*="addLocationBtn"]:hover {
+  background: var(--brand-primary-dark, #0c6a7e) !important;
+}
+
+/* Outlined aux actions (contact details, etc.) */
+.btnContact,
+.btnAux {
+  border-color: var(--brand-primary) !important;
+  color: var(--brand-primary) !important;
+}
+
+.btnContact:hover:not(:disabled) {
+  background: var(--brand-primary-light, #f1f5f9) !important;
+}
+
+/* Modal save must stay primary when footer used accent */
+.sc-modal-footer .btnSave,
+.btnSave:not(.btnDanger) {
+  background: var(--brand-primary) !important;
+  color: #ffffff !important;
+  border: none !important;
+}
+
+.sc-modal-footer .btnSave:hover:not(:disabled),
+.btnSave:hover:not(:disabled):not(.btnDanger) {
+  background: var(--brand-primary-dark, #0c6a7e) !important;
+}
+
+/* Danger actions stay red */
+.confirmBtnDanger,
+.btnDanger,
+[class*="btnDanger"],
+[class*="confirmBtnDanger"] {
+  background: var(--brand-required) !important;
+  border-color: var(--brand-required) !important;
+  color: #ffffff !important;
+}
+
+.confirmBtnDanger:hover:not(:disabled),
+.btnDanger:hover:not(:disabled) {
+  background: var(--brand-required-dark) !important;
+}

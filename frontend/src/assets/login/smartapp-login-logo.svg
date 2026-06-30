@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 32" fill="none" role="img" aria-label="SmartApp">
+  <!-- Enterprise palette: primary #0F7C94, shades + slate hub -->
+  <g transform="translate(0 4)">
+    <!-- Top blade (was red) -->
+    <polygon fill="#3D9DB3" points="15.63 6.48 16.93 0 13.1 5.37 9.26 10.74 12.61 9.98 14.34 12.95 15.63 6.48"/>
+    <!-- Left blade (was orange) -->
+    <polygon fill="#5CB4C9" points="12.91 9.3 6.46 8.01 0 6.73 5.34 10.56 10.68 14.39 9.94 11.04 12.91 9.3"/>
+    <!-- Bottom blade (was blue) -->
+    <polygon fill="#0F7C94" points="10.99 13.71 9.26 10.74 7.96 17.21 6.66 23.69 10.5 18.32 14.34 12.95 10.99 13.71"/>
+    <!-- Right blade (was teal-green) -->
+    <polygon fill="#0C6A7E" points="18.25 13.13 12.91 9.3 13.65 12.65 10.68 14.39 17.14 15.68 23.6 16.96 18.25 13.13"/>
+    <!-- Center hub -->
+    <circle cx="11.8" cy="12.2" r="3.2" fill="#E2E8F0"/>
+    <circle cx="11.8" cy="12.2" r="2" fill="#F8FAFC"/>
+  </g>
+  <text x="32" y="22" font-family="Inter, Segoe UI, sans-serif" font-size="18" font-weight="700" fill="#0F7C94">SmartApp</text>
+</svg>

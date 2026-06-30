@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18.71 9.7">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: var(--brand-primary, #197dfa);
+      }
+
+      .cls-2 {
+        fill: #fff;
+        stroke: var(--brand-primary, #197dfa);
+        stroke-miterlimit: 10;
+        stroke-width: .7px;
+      }
+    </style>
+  </defs>
+  <g id="ias">
+    <g id="f11.16.9_copy_3" data-name="f11.16.9 copy 3">
+      <g>
+        <rect class="cls-2" x=".35" y=".35" width="18.01" height="9" rx="2" ry="2"/>
+        <path class="cls-1" d="M5.45,4.85c0,.83-.67,1.5-1.5,1.5s-1.5-.67-1.5-1.5.67-1.5,1.5-1.5,1.5.67,1.5,1.5Z"/>
+        <circle class="cls-1" cx="9.35" cy="4.85" r="1.5"/>
+        <circle class="cls-1" cx="14.76" cy="4.85" r="1.5"/>
+      </g>
+    </g>
+  </g>
+</svg>

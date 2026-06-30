@@ -1,0 +1,164 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6vh;
+}
+
+.loading {
+  color: #64748b;
+  font-size: 0.9vw;
+  font-family: "Inter", sans-serif;
+  padding: 2vh 0;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1.4vh 1.2vw 1.6vh;
+}
+
+.sectionTitle {
+  margin: 0 0 1vh;
+  font-size: 0.95vw;
+  font-weight: 600;
+  color: var(--brand-primary);
+  font-family: "Inter", sans-serif;
+}
+
+.fieldGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1vh 1.2vw;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25vh;
+}
+
+.fieldLabel {
+  font-size: 0.75vw;
+  color: #64748b;
+  font-family: "Inter", sans-serif;
+}
+
+.fieldValue {
+  font-size: 0.88vw;
+  color: #0f172a;
+  font-weight: 500;
+  font-family: "Inter", sans-serif;
+}
+
+.tableScroll {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.82vw;
+  font-family: "Inter", sans-serif;
+}
+
+.table th,
+.table td {
+  border: 1px solid #e2e8f0;
+  padding: 0.5vh 0.45vw;
+  text-align: left;
+}
+
+.table th {
+  background: #f8fafc;
+  font-weight: 600;
+  color: #334155;
+}
+
+.num {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.emptyCell {
+  text-align: center;
+  color: #64748b;
+  padding: 2vh;
+}
+
+.remarks {
+  margin: 0;
+  font-size: 0.88vw;
+  line-height: 1.5;
+  color: #334155;
+  white-space: pre-wrap;
+}
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6vw;
+  padding: 1.5vh 0 0.5vh;
+}
+
+.btnPrimary,
+.btnSecondary,
+.btnApprove,
+.btnCancel {
+  border-radius: 6px;
+  padding: 0.6vh 1.2vw;
+  font-size: 0.88vw;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.btnSecondary {
+  background: #fff;
+  border-color: #cbd5e1;
+  color: #475569;
+}
+
+.btnPrimary {
+  background: var(--brand-primary);
+  color: #fff;
+}
+
+.btnApprove {
+  background: #16a34a;
+  color: #fff;
+}
+
+.btnCancel {
+  background: #dc2626;
+  color: #fff;
+}
+
+.btnPrimary:disabled,
+.btnSecondary:disabled,
+.btnApprove:disabled,
+.btnCancel:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.printRoot {
+  background: #fff;
+}
+
+@media print {
+  .noPrint {
+    display: none !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .loading,
+  .sectionTitle,
+  .fieldLabel,
+  .fieldValue,
+  .table,
+  .remarks {
+    font-size: 13px;
+  }
+}

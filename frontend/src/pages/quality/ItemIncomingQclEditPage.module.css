@@ -1,0 +1,120 @@
+.pageWrap {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1;
+}
+
+.loadingText {
+  padding: 1.5rem;
+  color: var(--text-muted, #64748b);
+}
+
+.formShell {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  flex: 1;
+  max-width: 100%;
+  border: 1px solid var(--border-subtle, #e2e8f0);
+  border-radius: 6px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.formHeader {
+  background: var(--brand-primary, #197dfa);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.65rem 1rem;
+}
+
+.qclBand {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 1.5rem;
+  align-items: flex-end;
+  padding: 1rem;
+  background: #e8f2ff;
+  border-bottom: 1px solid #c5daf8;
+}
+
+.qclField {
+  flex: 1 1 280px;
+  min-width: 0;
+  max-width: 420px;
+}
+
+.shelfField {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+  flex: 0 1 200px;
+}
+
+.shelfField :global(.sc-field) {
+  flex: 1;
+  min-width: 80px;
+}
+
+.monthsLabel {
+  padding-bottom: 0.55rem;
+  font-size: 0.9rem;
+  color: var(--text-secondary, #475569);
+  white-space: nowrap;
+}
+
+.itemSection {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.itemGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 1100px) {
+  .itemGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .itemGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.formFooter {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.75rem 1rem;
+  border-top: 1px solid var(--border-subtle, #e2e8f0);
+  background: #fafbfc;
+}
+
+.saveBtn {
+  min-width: 100px;
+  padding: 0.5rem 1.25rem;
+  border: none;
+  border-radius: 4px;
+  background: var(--brand-primary, #197dfa);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.saveBtn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+
+.saveBtn:not(:disabled):hover {
+  filter: brightness(0.95);
+}

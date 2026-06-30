@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28.15 28.15">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fafcff;
+        stroke: #d2d2ff;
+        stroke-width: .15px;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-miterlimit: 10;
+      }
+
+      .cls-3 {
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: .7px;
+      }
+
+      .cls-3, .cls-2 {
+        fill: none;
+        stroke: var(--brand-primary, #197dfa);
+      }
+
+      .cls-4, .cls-5 {
+        fill: var(--brand-primary, #197dfa);
+      }
+
+      .cls-2 {
+        stroke-width: .8px;
+      }
+
+      .cls-6 {
+        fill: #b8d1e6;
+      }
+
+      .cls-5 {
+        font-family: Inter-Medium, Inter;
+        font-size: 7px;
+        font-weight: 500;
+      }
+    </style>
+  </defs>
+  <g id="Menu">
+    <g>
+      <rect class="cls-1" x=".07" y=".08" width="28" height="28" rx="1" ry="1"/>
+      <g>
+        <g>
+          <path class="cls-2" d="M24.74,20.12c0,.2-.07.39-.21.54-.14.15-.32.22-.5.22H4.19c-.18,0-.36-.07-.5-.22-.14-.15-.21-.35-.21-.54V6.34c0-.2.07-.39.21-.54.14-.15.32-.22.5-.22h19.84c.18,0,.36.08.5.22.14.15.21.34.21.54v13.78Z"/>
+          <path class="cls-6" d="M16.53,20.96s-.01.08-.04.11c-.03.03-.06.04-.1.04h-4.56s-.07-.01-.1-.04c-.03-.03-.04-.07-.04-.11v-.08h4.84v.08h0Z"/>
+          <line class="cls-3" x1="3.49" y1="22.58" x2="24.74" y2="22.58"/>
+        </g>
+        <g>
+          <g>
+            <g>
+              <line class="cls-4" x1="10.48" y1="14.33" x2="7.71" y2="14.33"/>
+              <path class="cls-4" d="M7.71,14.13h2.77c.06,0,.12.09.12.2,0,.11-.05.2-.12.2h-2.77c-.06,0-.12-.09-.12-.2,0-.11.05-.2.12-.2Z"/>
+            </g>
+            <g>
+              <line class="cls-4" x1="10.48" y1="16.49" x2="7.71" y2="16.49"/>
+              <path class="cls-4" d="M7.71,16.29h2.77c.06,0,.12.09.12.2,0,.11-.05.2-.12.2h-2.77c-.06,0-.12-.09-.12-.2,0-.11.05-.2.12-.2Z"/>
+            </g>
+            <g>
+              <line class="cls-4" x1="10.48" y1="18.34" x2="7.71" y2="18.34"/>
+              <path class="cls-4" d="M7.71,18.14h2.77c.06,0,.12.09.12.2,0,.11-.05.2-.12.2h-2.77c-.06,0-.12-.09-.12-.2,0-.11.05-.2.12-.2Z"/>
+            </g>
+            <g>
+              <line class="cls-4" x1="20.62" y1="14.33" x2="17.85" y2="14.33"/>
+              <path class="cls-4" d="M17.85,14.13h2.77c.06,0,.12.09.12.2,0,.11-.05.2-.12.2h-2.77c-.06,0-.12-.09-.12-.2,0-.11.05-.2.12-.2Z"/>
+            </g>
+            <g>
+              <line class="cls-4" x1="20.62" y1="16.49" x2="17.85" y2="16.49"/>
+              <path class="cls-4" d="M17.85,16.29h2.77c.06,0,.12.09.12.2,0,.11-.05.2-.12.2h-2.77c-.06,0-.12-.09-.12-.2,0-.11.05-.2.12-.2Z"/>
+            </g>
+            <g>
+              <line class="cls-4" x1="20.62" y1="18.34" x2="17.85" y2="18.34"/>
+              <path class="cls-4" d="M17.85,18.14h2.77c.06,0,.12.09.12.2,0,.11-.05.2-.12.2h-2.77c-.06,0-.12-.09-.12-.2,0-.11.05-.2.12-.2Z"/>
+            </g>
+          </g>
+          <g>
+            <line class="cls-4" x1="14.03" y1="19.12" x2="14.03" y2="9.03"/>
+            <path class="cls-4" d="M14.23,9.03v10.08c0,.23-.09.42-.2.42s-.2-.19-.2-.42v-10.08c0-.23.09-.42.2-.42s.2.19.2.42Z"/>
+          </g>
+          <text class="cls-5" transform="translate(6.73 13.02) scale(1 .95)"><tspan x="0" y="0">D</tspan></text>
+          <text class="cls-5" transform="translate(16.28 13.02) scale(1 .95)"><tspan x="0" y="0">C</tspan></text>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

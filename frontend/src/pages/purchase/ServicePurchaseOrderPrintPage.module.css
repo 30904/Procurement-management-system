@@ -1,0 +1,57 @@
+/* SPO print — full-width preview, content-height sheet (no forced A4 filler) */
+.spoPrintShell {
+  padding: 0.5rem 0.75rem 1rem;
+}
+
+.spoPrintShell .printArea {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.spoPrintShell .toolbarStandalone {
+  max-width: none;
+  width: 100%;
+  padding: 0.35rem 0.5rem 0.55rem;
+}
+
+.spoPrintShell .sheet {
+  height: auto;
+  min-height: unset;
+  width: 100%;
+}
+
+.spoPrintShell .sheetInner {
+  height: auto;
+  flex: none;
+}
+
+.spoPrintShell .signArea {
+  min-height: 6mm;
+  padding: 1mm 2.5mm;
+}
+
+.spoPrintShell .linePadRow td {
+  height: 3.2mm;
+  padding-top: 0.35mm;
+  padding-bottom: 0.35mm;
+}
+
+@media print {
+  .spoPrintShell .printArea {
+    width: 100%;
+    max-width: none;
+  }
+
+  .spoPrintShell .sheet {
+    height: auto !important;
+    min-height: unset !important;
+    width: 100%;
+    max-width: none;
+    page-break-inside: auto;
+  }
+
+  .spoPrintShell .sheetInner {
+    height: auto !important;
+  }
+}

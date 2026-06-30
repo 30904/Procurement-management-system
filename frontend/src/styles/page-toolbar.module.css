@@ -1,0 +1,96 @@
+.page:global(.erp-page) {
+  padding: 1.6vw 2.2vw 2vw;
+  animation: fadeIn 0.22s ease;
+}
+
+@media (max-height: 910px) {
+  .page:global(.erp-page) {
+    padding: 1.3vw 2.2vw 2vw;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.locationScopeNote {
+  margin: 0 0 1.2vh;
+  padding: 0.7vh 1vw;
+  border-radius: 6px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  font-family: "Inter", sans-serif;
+  font-size: 0.88vw;
+  color: #475569;
+  line-height: 1.45;
+}
+
+.locationScopeNote strong {
+  color: var(--brand-primary);
+  font-weight: 600;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.75vw;
+  margin-bottom: 1.5vh;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+.toolbarTitle {
+  margin: 0;
+  flex: 1;
+  min-width: 0;
+}
+
+.toolbarHelp {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .toolbar {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+  }
+
+  .toolbarHelp {
+    margin-left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+}
+
+.titleRow {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.1vw;
+  font-weight: 400;
+  color: #334155;
+  font-family: "Inter", sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  min-height: 1.5vw;
+  display: flex;
+  align-items: center;
+}
+
+.body {
+  flex: 1;
+  min-height: 12vh;
+}

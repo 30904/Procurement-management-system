@@ -1,0 +1,39 @@
+.footerBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1rem;
+  border-top: 1px solid #e2e8f0;
+  background: #f8fafc;
+  flex-shrink: 0;
+}
+
+.termsBtn {
+  padding: 0.4rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: 1px solid var(--brand-primary, #197dfa);
+  background: #fff;
+  color: var(--brand-primary, #197dfa);
+  font-family: inherit;
+}
+
+.termsBtn:hover {
+  background: var(--brand-primary-light, #eef6ff);
+}
+
+.jwoValueChip {
+  margin-left: auto;
+  font-weight: 600;
+  color: #0f172a;
+  font-size: 0.9rem;
+}
+
+.termsHint {
+  font-size: 0.72rem;
+  color: #64748b;
+  width: 100%;
+}

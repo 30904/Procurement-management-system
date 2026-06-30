@@ -1,0 +1,112 @@
+.wrap {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  min-height: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.viewport {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.viewport::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+.rail {
+  flex-shrink: 0;
+  width: var(--csv-rail-w, 1.6vw);
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+  align-self: stretch;
+}
+
+.arrowBtn {
+  flex-shrink: 0;
+  width: 100%;
+  height: var(--csv-arrow-h, 1.75vw);
+  padding: 0;
+  margin: 0;
+  border: none;
+  box-sizing: border-box;
+  background: #ffffff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrowBtn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.arrowBtn:not(:disabled):hover {
+  background: #f5fbff;
+}
+
+.arrowIcon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.track {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+  box-sizing: border-box;
+  background: #ffffff;
+}
+
+.thumb {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: var(--csv-arrow-h, 1.75vw);
+  background: var(--brand-primary-light, #eef6ff);
+  border: 0.1vw solid var(--brand-primary, #197dfa);
+  border-radius: 0.15vw;
+  cursor: grab;
+  touch-action: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.thumb:hover {
+  background: rgba(var(--brand-primary-rgb, 25, 125, 250), 0.22);
+  border-color: var(--brand-primary-dark, #1568c7);
+}
+
+.thumbDragging {
+  cursor: grabbing;
+}
+
+.railMuted .track {
+  opacity: 0.35;
+}
+
+.railMuted .arrowBtn:not(:disabled) {
+  opacity: 0.5;
+}
+
+/* Fills an absolutely positioned host (e.g. purchase journal tbody rail) */
+.railJournalHost {
+  flex: 1 1 auto;
+  flex-shrink: 1;
+  min-height: 0;
+  width: 100%;
+  align-self: stretch;
+}

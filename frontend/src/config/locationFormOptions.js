@@ -1,0 +1,55 @@
+export const LOCATION_TYPE_OPTIONS = [
+  "Head Office",
+  "Factory",
+  "Warehouse",
+  "Branch",
+  "Store",
+  "Service Center",
+  "Other",
+];
+
+export const OPERATIONAL_CATEGORY_OPTIONS = [
+  "Manufacturing",
+  "Trading",
+  "Storage",
+  "Retail",
+  "Administrative",
+  "Mixed",
+];
+
+export const LOCATION_STATUS_OPTIONS = ["Active", "Inactive"];
+
+export const INDIAN_STATES = [
+  "Andhra Pradesh",
+  "Arunachal Pradesh",
+  "Assam",
+  "Bihar",
+  "Chhattisgarh",
+  "Goa",
+  "Gujarat",
+  "Haryana",
+  "Himachal Pradesh",
+  "Jharkhand",
+  "Karnataka",
+  "Kerala",
+  "Madhya Pradesh",
+  "Maharashtra",
+  "Manipur",
+  "Meghalaya",
+  "Mizoram",
+  "Nagaland",
+  "Odisha",
+  "Punjab",
+  "Rajasthan",
+  "Sikkim",
+  "Tamil Nadu",
+  "Telangana",
+  "Tripura",
+  "Uttar Pradesh",
+  "Uttarakhand",
+  "West Bengal",
+  "Delhi",
+  "Jammu and Kashmir",
+  "Ladakh",
+  "Puducherry",
+];

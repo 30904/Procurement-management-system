@@ -1,0 +1,317 @@
+/* Override erp-page height:100% so flex children are not squashed to zero */
+.page:global(.erp-page) {
+  height: auto;
+  min-height: 100%;
+  overflow: visible;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+}
+
+.importCard,
+.instructionsCard,
+.downloadCard {
+  flex-shrink: 0;
+}
+
+.importCard {
+  background: #fff;
+  border: 0.06vw solid #e2e8f0;
+  border-radius: 0.3vw;
+  box-shadow: 0 0.25vh 1.4vw rgba(15, 23, 42, 0.07);
+  overflow: visible;
+}
+
+.importCardHeader {
+  padding: 1.4vh 1.5vw;
+  text-align: center;
+  font-size: 1.05vw;
+  font-weight: 600;
+  color: #fff;
+  background: var(--brand-primary, #197dfa);
+  border-radius: 0.3vw 0.3vw 0 0;
+}
+
+.importSection {
+  display: flex;
+  gap: 1.2vw;
+  padding: 2.2vh 1.8vw;
+  align-items: flex-start;
+}
+
+.stepBadge {
+  flex-shrink: 0;
+  width: 2vw;
+  min-width: 28px;
+  height: 2vw;
+  min-height: 28px;
+  border-radius: 50%;
+  background: var(--brand-primary, #197dfa);
+  color: #fff;
+  font-size: 0.95vw;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stepContent {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2vh;
+}
+
+.stepTitle {
+  margin: 0;
+  font-size: 1vw;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.stepText {
+  margin: 0;
+  font-size: 0.9vw;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.importDivider {
+  border: none;
+  border-top: 0.06vw solid #e8eef5;
+  margin: 0 1.8vw;
+}
+
+.dropzoneHost {
+  width: 100%;
+  margin-top: 0.5vh;
+}
+
+.dropzoneHost :global(.coa-upload-dropzone-wrap) {
+  max-width: none;
+  width: 100%;
+}
+
+.dropzoneHost :global(.coa-upload-dropzone) {
+  min-height: 160px;
+  flex: none;
+  width: 100%;
+}
+
+.instructionsCard {
+  padding: 2vh 1.8vw 2.2vh;
+  background: #fff;
+  border: 0.06vw solid #e2e8f0;
+  border-radius: 0.3vw;
+  box-shadow: 0 0.25vh 1.4vw rgba(15, 23, 42, 0.06);
+}
+
+.instructionsTitle {
+  margin: 0 0 1.2vh;
+  font-size: 1.02vw;
+  font-weight: 600;
+  color: var(--brand-primary, #197dfa);
+}
+
+.instructionsList {
+  margin: 0 0 1.6vh;
+  padding-left: 1.4vw;
+  font-size: 0.88vw;
+  color: #475569;
+  line-height: 1.55;
+}
+
+.instructionsList li + li {
+  margin-top: 0.5vh;
+}
+
+.instructionsNote {
+  margin: 1.2vh 0 0;
+  font-size: 0.82vw;
+  color: #64748b;
+  font-style: italic;
+}
+
+.columnTableWrap {
+  overflow-x: auto;
+  border: 0.06vw solid #e8eef5;
+  border-radius: 0.25vw;
+}
+
+.columnTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.84vw;
+}
+
+.columnTable th,
+.columnTable td {
+  padding: 0.7vh 1vw;
+  text-align: left;
+  border-bottom: 0.06vw solid #e8eef5;
+}
+
+.columnTable th {
+  background: #f1f5f9;
+  color: #334155;
+  font-weight: 600;
+}
+
+.columnTable td:first-child {
+  color: #1e293b;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.columnTable td:last-child {
+  color: #64748b;
+}
+
+.columnTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.uploadActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75vw;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 1.5vw;
+  border: none;
+  border-radius: 0.25vw;
+  background: var(--brand-primary, #197dfa);
+  color: #fff;
+  font-size: 0.9vw;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 0.15s, box-shadow 0.15s;
+}
+
+.btnPrimary:hover:not(:disabled) {
+  background: var(--brand-primary-dark, #1568c7);
+  box-shadow: 0 0.2vh 0.8vw var(--brand-primary-shadow, rgba(25, 125, 250, 0.25));
+}
+
+.btnPrimary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0 1.2vw;
+  border: none;
+  border-radius: 0.25vw;
+  background: transparent;
+  color: #64748b;
+  font-size: 0.88vw;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.btnGhost:hover:not(:disabled) {
+  color: #334155;
+  background: #f1f5f9;
+}
+
+.btnGhost:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.resultPanel {
+  width: 100%;
+  padding: 1.6vh 1.4vw;
+  border-radius: 0.25vw;
+  border: 0.06vw solid #e2e8f0;
+  background: #f8fafc;
+}
+
+.resultTitle {
+  margin: 0 0 0.8vh;
+  font-size: 0.95vw;
+  font-weight: 600;
+  color: #334155;
+}
+
+.resultStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1vw 2vw;
+  margin-bottom: 1vh;
+  font-size: 0.88vw;
+  color: #475569;
+}
+
+.resultSuccess {
+  color: #15803d;
+  font-weight: 600;
+}
+
+.resultFailed {
+  color: #b91c1c;
+  font-weight: 600;
+}
+
+.errorList {
+  margin: 0;
+  padding-left: 1.2vw;
+  font-size: 0.82vw;
+  color: #b91c1c;
+  max-height: 20vh;
+  overflow-y: auto;
+}
+
+.linkBtn {
+  margin-top: 1.2vh;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--brand-primary, #197dfa);
+  font-size: 0.88vw;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .stepTitle,
+  .stepText,
+  .instructionsTitle,
+  .instructionsList,
+  .instructionsNote,
+  .columnTable,
+  .btnPrimary,
+  .btnGhost,
+  .resultTitle,
+  .resultStats,
+  .errorList,
+  .linkBtn {
+    font-size: 14px;
+  }
+
+  .importCardHeader {
+    font-size: 16px;
+  }
+
+  .dropzoneHost :global(.coa-upload-dropzone) {
+    min-height: 140px;
+  }
+}

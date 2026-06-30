@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 44.15 40.07">
+  <defs>
+    <style>
+      .cls-1 {
+        opacity: .9;
+      }
+
+      .cls-2 {
+        fill: var(--brand-primary, #197dfa);
+      }
+
+      .cls-3 {
+        fill: #f5f5ff;
+        stroke: #5a6ee6;
+        stroke-miterlimit: 10;
+        stroke-width: .15px;
+      }
+    </style>
+  </defs>
+  <g id="Menu">
+    <g>
+      <rect class="cls-3" x=".08" y=".08" width="44" height="39.92"/>
+      <g class="cls-1">
+        <g>
+          <rect class="cls-2" x="13.47" y="11.54" width="3.62" height="3.58"/>
+          <rect class="cls-2" x="20.26" y="11.54" width="3.62" height="3.58"/>
+          <rect class="cls-2" x="27.06" y="11.54" width="3.62" height="3.58"/>
+          <rect class="cls-2" x="13.47" y="18.25" width="3.62" height="3.58"/>
+          <rect class="cls-2" x="20.26" y="18.25" width="3.62" height="3.58"/>
+          <rect class="cls-2" x="27.06" y="18.25" width="3.62" height="3.58"/>
+          <rect class="cls-2" x="13.47" y="24.96" width="3.62" height="3.58"/>
+          <rect class="cls-2" x="20.26" y="24.96" width="3.62" height="3.58"/>
+          <rect class="cls-2" x="27.06" y="24.96" width="3.62" height="3.58"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
